@@ -20,7 +20,7 @@ ul {
 
 /* Header Styles */
 header {
-  background-color: rgba(233, 233, 233, 0.24);
+  background-color: rgba(216, 214, 214, 0.432);
   backdrop-filter: blur(12px);
   padding: 20px;
   position: fixed;
@@ -29,7 +29,7 @@ header {
   width: 100%;
   z-index: 100;
   box-shadow: 50 10px 30px rgba(253, 34, 224, 0.062);
-  border-radius: 50px;
+  border-radius: 15px;
 }
 
 nav ul {
@@ -173,7 +173,7 @@ section:not(:last-child)::after {
   border-left: 5px solid #fff;
   padding-left: 20px;
   margin-bottom: 40px;
-  animation: slideIn 0.5s ease;
+  animation: slideIn 1.5s ease;
 }
 
 .experience-title,
@@ -188,6 +188,7 @@ section:not(:last-child)::after {
 .project-date,
 .volunteer-organization,
 .volunteer-date {
+  font-weight: bolder;
   font-size: 16px;
   color: #ccc;
   margin-bottom: 10px;
@@ -195,7 +196,7 @@ section:not(:last-child)::after {
 
 /* Footer Styles */
 footer {
-  background-color: rgba(24, 24, 24, 0.06);
+  background-color: rgba(58, 54, 54, 0.08);
   font-size: large;
   font-style: italic;
   color: #fff;
@@ -321,25 +322,30 @@ footer {
   0% {
     animation-delay: 10ms;
     opacity: 10;
-    transform: translateX(-45px);
+    transform: translateX(-30px);
+  }50%{
+    animation-delay: 15ms;;
+    opacity: 7;
+    transform: translateX(-22px);
   }
+
   75%{
     animation-delay: 30ms;;
-    opacity: 7;
-    transform: translateX(-25px);
+    opacity: 5;
+    transform: translateX(-14px);
   }
   100% {
-    animation-delay: 250ms;
+    animation-delay: 25ms;
     transition-delay: 50ms;
-    opacity: 15;
-    transform: translateX(0);
+    opacity: 2;
+    transform: translateX(-6px);
   }
 }
 .contact-section {
   text-align: center;
   opacity: 0;
   transform: translateY(50px);
-  animation: fadeInUp 25.0s ease forwards;
+  animation: fadeInUp 12.0s ease forwards;
 }
 
 .contact-info {
@@ -357,7 +363,7 @@ footer {
   margin: 10px 20px;
   opacity: 0.2;
   transform: translateY(25px);
-  animation: fadeInUp 8.0s ease forwards;
+  animation: fadeInUp 10.0s ease forwards;
 }
 
 .contact-item:nth-child(1) {
