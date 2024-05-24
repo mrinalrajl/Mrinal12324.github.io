@@ -36,7 +36,7 @@ camera.position.z = 10;
 function animate() {
   requestAnimationFrame(animate);
 
-  heroMesh.rotation.x += 0.01;
+  heroMesh.rotation.x += 0.05;
   heroMesh.rotation.y += 0.01;
 
   // Add more complex animations here
@@ -55,14 +55,14 @@ window.addEventListener('resize', () => {
 });
 
 // Position the camera
-camera.position.z = 10;
+camera.position.z = 15;
 
 // Animate the hero section
 function animate() {
   requestAnimationFrame(animate);
 
-  heroMesh.rotation.x += 0.01;
-  heroMesh.rotation.y += 0.01;
+  heroMesh.rotation.x += 0.20;
+  heroMesh.rotation.y += 0.1;
 
   // Add more complex animations here
   // e.g., morphing, particle effects, lighting changes

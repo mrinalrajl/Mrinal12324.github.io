@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro:wght@400;700&display=swap');
 /* Global Styles */
 body {
-  font-family: 'SF Pro', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #9a74f8e5, #df76cb);
-  color: #a2faf6fd;
+  background: #1c378d;
+  color: #ffad16;
 }
 
 a {
@@ -21,14 +20,10 @@ ul {
 /* Header Styles */
 header {
   background-color: rgba(216, 214, 214, 0.432);
-  backdrop-filter: blur(12px);
-  padding: 20px;
+  backdrop-filter: blur(55px);
+  padding: 1%;
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  z-index: 100;
-  box-shadow: 50 10px 30px rgba(253, 34, 224, 0.062);
   border-radius: 15px;
 }
 
@@ -38,21 +33,21 @@ nav ul {
 }
 
 nav li {
+
   margin: 10 25px;
 }
 
 nav a {
-  color: #e8f804;
-  text-decoration: none;
+  color: #edf391;
+  text-decoration: solid;
   font-size: 25px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 10px 20px;
-  border-radius: 85px;
-  transition: background-color 0.3s ease;
+  border-radius: 55px;
 }
 
 nav a:hover {
-  background-color: rgba(203, 107, 247, 0.74);
+  background-color: rgba(255, 217, 0, 0.404);
 }
 
 
@@ -66,21 +61,19 @@ main {
 /* Section Styles */
 section {
   padding: 90px 80px;
-  transition: box-shadow 1.3s ease;
   font-size: 20px;
   border-radius: 50px;
 }
 
 section:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.445);
-  background: linear(to center, #82f5fde5, #ffa6ef);
+  box-shadow:10px 15px rgba(3, 3, 3, 0.527);
 }
 
 .section-title {
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 40px;
-  color: #333;
+  color: #ffe6d1a4;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
@@ -89,7 +82,7 @@ section:hover {
 .section-content {
   font-size: 45px;
   line-height: 1.6;
-  color: #555;
+  color: #ffffff;
 }
 
 /* Divider */
@@ -98,32 +91,17 @@ section:not(:last-child)::after {
   display: block;
   width: 100%;
   height: 5px;
-  background-color: oldlace;
+  background-color: rgb(218, 174, 92);
   border-radius: 10px;
   margin-top: 60px;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 .hero-section {
-  display: flex;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
   align-items: center;
-  height: 80vh;
-  background: linear-gradient(to right, #b79affa8, #ff5de1);
-  animation: heroFadeIn 1s ease-in;
+  height: 10 rem;
+  background: rgba(255, 255, 255, 0);
 }
 
 .hero-content {
@@ -136,24 +114,22 @@ section:not(:last-child)::after {
 }
 
 .hero-subtitle {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 30px;
 }
 
 .btn {
   display: inline-block;
-  background-color: #c75afa;
-  font-size: x-large;
-  font-family: 'Times New Roman', Times, serif;
+  background-color: #77fd7e;
+  font-size: large;
+  font-family: serif;
   color: #000000;
   padding: 10px 20px;
   border-radius: 85px;
-  transition: background-color 0.75s ease, color 0.5s ease;
 }
 
 .btn:hover {
-  background-color: #ccc;
-  color: #333;
+  font-size: x-large;
 }
 
 .about-text,
@@ -162,9 +138,9 @@ section:not(:last-child)::after {
 .project-description,
 .volunteer-description,
 .contact-info {
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.5;
-  animation: fadeIn 1s ease;
+  animation: fadeIn;
 }
 
 .experience-item,
@@ -173,13 +149,13 @@ section:not(:last-child)::after {
   border-left: 5px solid #fff;
   padding-left: 20px;
   margin-bottom: 40px;
-  animation: slideIn 1.5s ease;
+  animation: slideIn;
 }
 
 .experience-title,
 .project-title,
 .volunteer-title {
-  font-size: 24px;
+  font-size: 26px;
   margin-bottom: 5px;
 }
 
@@ -188,15 +164,14 @@ section:not(:last-child)::after {
 .project-date,
 .volunteer-organization,
 .volunteer-date {
-  font-weight: bolder;
-  font-size: 16px;
+  font-size: 18px;
   color: #ccc;
   margin-bottom: 10px;
 }
 
 /* Footer Styles */
 footer {
-  background-color: rgba(58, 54, 54, 0.08);
+  background-color: rgba(170, 156, 156, 0.0475);
   font-size: large;
   font-style: italic;
   color: #fff;
@@ -207,6 +182,7 @@ footer {
 
 .contact-section {
   text-align: center;
+  max-width: 80%;
 }
 
 .contact-info {
@@ -230,13 +206,13 @@ footer {
 }
 
 .contact-item a {
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: #ffffff;
+  transition: 0.3s ease;
 }
 
 .contact-item a:hover {
-  color: #5e2dda;
+  font-weight: bolder;
+  font-size: x-large;
 }
 
 .contact-logo {
@@ -247,19 +223,19 @@ footer {
 .experience-item {
   display: flex;
   align-items: center;
-  margin-bottom: 60px;
-  opacity: 0;
   transform: translateX(-50px);
-  animation: fadeInLeft 0.8s ease forwards;
 }
 
 .experience-item:nth-child(even) {
   flex-direction: row-reverse;
-  animation: fadeInRight 0.8s ease forwards;
+  animation: fadeInRight;
 }
 
-.experience-content {
+.experience-content,
+.project-content,
+.volunteer-content {
   flex: 1;
+  animation: both;
   padding-right: 40px;
 }
 
@@ -270,7 +246,6 @@ footer {
 .experience-image img {
   width: 50%;
   height: auto;
-  animation-iteration-count: initial;
   border-radius: 20px;
 }
 
@@ -361,40 +336,13 @@ footer {
   display: flex;
   align-items: center;
   margin: 10px 20px;
-  opacity: 0.2;
+  opacity: 0.7;
   transform: translateY(25px);
-  animation: fadeInUp 10.0s ease forwards;
+  animation: fadeInUp;
 }
-
-.contact-item:nth-child(1) {
-  animation-delay: 7s;
-}
-
-.contact-item:nth-child(2) {
-  animation-delay: 7s;
-}
-
-.contact-item:nth-child(3) {
-  animation-delay: 4.3s;
-}
-
-.contact-item:nth-child(4) {
-  animation-delay: 10.s;
-}
-
 .contact-item i {
   font-size: 24px;
   margin-right: 10px;
-}
-
-.contact-item a {
-  color: #333;
-  text-decoration: none;
-  transition: color 5s ease;
-}
-
-.contact-item a:hover {
-  color: #6b5b95;
 }
 
 .contact-logo {
@@ -406,7 +354,7 @@ footer {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(45px);
   }
   100% {
     opacity: 1;
