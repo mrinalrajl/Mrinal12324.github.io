@@ -9,7 +9,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #5a4545;
 }
 
 ul {
@@ -96,6 +96,11 @@ section:not(:last-child)::after {
   margin-top: 60px;
 }
 
+.profile-pic {
+  height: 35%;
+  width: 30%;
+  border-radius: 15%;
+}
 
 .hero-section {
   justify-content: center;
@@ -146,7 +151,8 @@ section:not(:last-child)::after {
 .experience-item,
 .project-item,
 .volunteer-item {
-  border-left: 5px solid #fff;
+  border-left: 5px solid #f78888fa;
+  border-radius: 1.85%;
   padding-left: 20px;
   margin-bottom: 40px;
   animation: slideIn;
