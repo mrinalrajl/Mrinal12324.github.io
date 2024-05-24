@@ -6,7 +6,7 @@ Smooth and Soothing Animation on my Personal Portfolio website. There will be fr
 
 # Keep Practicing! 
 This website was designed using Design Thinking Process which invloves
-- E (Empathise)
+- E (Empathize)
 - D (Design)
 - I (Ideate)
 - P (Prototype)
