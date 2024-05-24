@@ -13,21 +13,23 @@ a {
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: disc;
+  margin: 5;
   padding: 0;
 }
 
 /* Header Styles */
 header {
-  background-color: rgba(216, 214, 214, 0.432);
-  backdrop-filter: blur(55px);
+  backdrop-filter: blur(10px);
   padding: 1%;
   position: fixed;
   width: 100%;
   border-radius: 15px;
+  opacity: 95%;
 }
 
 nav ul {
+  list-style-type: none;
   display: flex;
   justify-content: center;
 }
@@ -38,7 +40,7 @@ nav li {
 }
 
 nav a {
-  color: #edf391;
+  color: #ecfc13;
   text-decoration: solid;
   font-size: 25px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -47,7 +49,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgba(255, 217, 0, 0.404);
+  background-color: rgba(21, 206, 157, 0.733);
 }
 
 
