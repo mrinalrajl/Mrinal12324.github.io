@@ -20,7 +20,7 @@ ul {
 
 /* Header Styles */
 header {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   padding: 1%;
   position: fixed;
   width: 100%;
