@@ -3,13 +3,14 @@
 body {
   margin: 0;
   padding: 0;
-  background: #1c378d;
-  color: #ffad16;
+  background:  linear-gradient(#2f12d3d3 , color-mix(in hsl shorter hue, #854905 75%, #2f12d3d3 50%));
+  color: black;
+  background-color:  
 }
 
 a {
   text-decoration: none;
-  color: #5a4545;
+  color: #da9e9e77;
 }
 
 ul {
@@ -20,38 +21,10 @@ ul {
 
 /* Header Styles */
 header {
-  backdrop-filter: blur(12px);
-  padding: 1%;
+  backdrop-filter: blur(50%);
   position: fixed;
-  width: 100%;
-  border-radius: 15px;
-  opacity: 75%;
+  opacity: 60%;
 }
-
-nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-}
-
-nav li {
-
-  margin: 10 25px;
-}
-
-nav a {
-  color: #ecfc13;
-  text-decoration: solid;
-  font-size: 25px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding: 10px 20px;
-  border-radius: 55px;
-}
-
-nav a:hover {
-  background-color: rgba(21, 206, 157, 0.733);
-}
-
 
 /* Main Content Styles */
 main {
@@ -59,7 +32,6 @@ main {
   margin: 0 auto;
   padding: 120px 20px 40px;
 }
-
 /* Section Styles */
 section {
   padding: 90px 80px;
