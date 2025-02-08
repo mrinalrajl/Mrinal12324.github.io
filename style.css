@@ -109,6 +109,7 @@ section:not(:last-child)::after {
 
 .btn:hover {
   font-size: x-large;
+  background-color: #a2dee27a;
 }
 
 .about-text,
