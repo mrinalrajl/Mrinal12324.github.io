@@ -1,4 +1,4 @@
-// Select all navigation links
+/* Select all navigation links
 const navLinks = document.querySelectorAll('.nav-link');
 
 // Add click event listener to each navigation link
@@ -78,3 +78,5 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+*/

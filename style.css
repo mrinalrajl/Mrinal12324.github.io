@@ -1,5 +1,7 @@
+/**
+
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro:wght@400;700&display=swap');
-/* Global Styles */
+
 body {
   margin: 0;
   padding: 0;
@@ -19,20 +21,19 @@ ul {
   padding: 0;
 }
 
-/* Header Styles */
 header {
   backdrop-filter: blur(50%);
   position: fixed;
   opacity: 60%;
 }
 
-/* Main Content Styles */
+
 main {
   max-width: 800px;
   margin: 0 auto;
   padding: 120px 20px 40px;
 }
-/* Section Styles */
+
 section {
   padding: 90px 80px;
   font-size: 20px;
@@ -59,7 +60,7 @@ section:hover {
   color: #ffffff;
 }
 
-/* Divider */
+
 section:not(:last-child)::after {
   content: "";
   display: block;
@@ -150,7 +151,7 @@ section:not(:last-child)::after {
   margin-bottom: 10px;
 }
 
-/* Footer Styles */
+
 footer {
   background-color: rgba(170, 156, 156, 0.0475);
   font-size: large;
@@ -252,8 +253,6 @@ footer {
   }
 }
 
-
-/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -342,7 +341,7 @@ footer {
     transform: translateY(0);
   }
 }
-/* Fade-in animation */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -354,4 +353,5 @@ footer {
 
 .hero-section {
   animation: fadeIn 2s ease ;
-}
+} 
+**/
