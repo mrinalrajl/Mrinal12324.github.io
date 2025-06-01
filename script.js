@@ -103,7 +103,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.vibrant-section').forEach(section => {
+document.querySelectorAll('.vibrant-section, .minimal-section, .hero-section, .about-section, .experience-section, .projects-section, .contact-section').forEach(section => {
   observer.observe(section);
 });
 
@@ -177,3 +177,24 @@ setThemeByTime();
 setInterval(() => {
   setThemeByTime();
 }, 1000);
+
+// User Guide Modal logic
+window.addEventListener('DOMContentLoaded', () => {
+  const guide = document.getElementById('user-guide');
+  const closeBtn = guide.querySelector('.user-guide-close');
+  // Show only for new users (localStorage)
+  if (!localStorage.getItem('userGuideSeen')) {
+    guide.classList.add('active');
+  }
+  closeBtn.addEventListener('click', () => {
+    guide.classList.remove('active');
+    localStorage.setItem('userGuideSeen', '1');
+  });
+  // Optional: close on outside click
+  guide.addEventListener('click', (e) => {
+    if (e.target === guide) {
+      guide.classList.remove('active');
+      localStorage.setItem('userGuideSeen', '1');
+    }
+  });
+});
