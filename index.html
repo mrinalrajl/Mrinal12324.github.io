@@ -1,197 +1,146 @@
-<!---
-
-# Mrinal Raj Lakkimsetty - Portfolio (202)
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinal Raj Lakkimsetty - Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"><link rel="stylesheet" href="style.css">
+  <title>Mrinal Raj Lakkimsetty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav>
-    </nav>
+  <div class="color-bg"></div>
+  <header class="main-header vibrant top-navbar alicelee-navbar" role="banner">
+    <div class="navbar-content">
+      <a href="#hero" class="navbar-logo gradient-text" aria-label="Go to hero section">
+        <span class="navbar-logo-apple" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:8px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+            <path d="M20.5 7.5c-1.1 0-2.4-.7-3.2-.7-.8 0-2 .6-3.2.6-1.3 0-2.7-.6-3.7-1.6C8.2 5.2 7.2 3.7 7.2 2.2c0-.1 0-.2.1-.2.1-.1.2-.1.3-.1.7 0 2.1.5 3.2 1.5 1.1 1 2.1 2.5 2.1 4.1 0 .1 0 .2-.1.2-.1.1-.2.1-.3.1zm-6.2 13.2c-1.2 0-2.3-.3-3.2-.8-.9-.5-1.7-1.2-2.3-2.1-.6-.9-1-2-1-3.2 0-1.2.3-2.3.8-3.2.5-.9 1.2-1.7 2.1-2.3.9-.6 2-.9 3.2-.9 1.2 0 2.3.3 3.2.8.9.5 1.7 1.2 2.3 2.1.6.9 1 2 1 3.2 0 1.2-.3 2.3-.8 3.2-.5.9-1.2 1.7-2.1 2.3-.9.6-2 .9-3.2.9z" fill="#fff"/>
+            <circle cx="22.5" cy="5.5" r="2.5" fill="#fff"/>
+          </svg>
+        </span>
+        <span style="vertical-align:middle;">Mrinal</span>
+      </a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="#about" class="nav-link" aria-label="About section">About</a>
+        <a href="#experience" class="nav-link" aria-label="Experience section">Experience</a>
+        <a href="#projects" class="nav-link" aria-label="Projects section">Projects</a>
+        <a href="#contact" class="nav-link" aria-label="Contact section">Contact</a>
+      </nav>
+      <a href="#contact" class="btn contact-navbar-btn animated-btn" aria-label="Contact Me">Contact Me</a>
+    </div>
   </header>
-<link rel="stylesheet" type="text/css" href="/api-www/global-elements/global-header/v1/assets/globalheader.css">
-  <main>
-    <section id="hero" class="hero-section">
+  <div class="theme-timer theme-timer-bottom" aria-live="polite">
+    <span id="theme-label">Dark mode in</span>
+    <span id="theme-timer"></span>
+  </div>
+  <main id="main-content" tabindex="-1">
+    <section id="hero" class="hero-section vibrant-section" aria-labelledby="hero-title">
       <div class="hero-content">
-        <h1 class="hero-title">Mrinal Raj Lakkimsetty</h1>
-        <p class="hero-subtitle">Data Science | Software Developer</p>
-        <img src="images/DSC_2645.JPEG.jpg" alt="Tensor" class="profile-pic">
-        <br><br>
-        <a href="resume/Mrinal_Resume.pdf" class="btn hero-btn">Download Resume</a>
-      </div>
-    </section>
-
-    <section id="about" class="about-section">
-      <h2 class="section-title">About Me</h2>
-      <p class="about-text">I am a passionate data science and software development professional with a strong background in various technologies and programming languages. I am currently pursuing a Master of Science in Data Science at the Illinois Institute of Technology and have previously completed my Bachelor of Technology in Computer Science Engineering.</p>
-    </section>
-<!-----
-    <section id="Cref" class="Cref-section">
-      <h2 class="section-title">Certifications</h2>
-      <ul class="Cref-list">
-        <li>Python</li>
-        <li>C</li>
-        <li>C++</li>
-        <li>MySQL</li>
-        <li>MongoDB</li>
-        <li>Hadoop</li>
-        <li>R</li>
-        <li>AWS</li>
-        <li>Swift</li>
-        <li>Salesforce</li>
-        <li>GitHub</li>
-        <li>Microsoft Excel</li>
-        <li>Tableau</li>
-        <li>Adobe Photoshop</li>
-        <li>Adobe Lightroom</li>
-        <li>Adobe XD</li>
-      </ul>
-    </section>
-
-    <section id="experience" class="experience-section">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3 class="experience-title">Software Developer Intern</h3>
-            <p class="experience-company">TRST01, India</p>
-            <p class="experience-date">January 2023 - May 2023</p>
-            <ul class="experience-list">
-              <li>Designed and programmed a comprehensive platform to track and manage the production of goods across multiple projects, significantly enhancing operational efficiency for various customers.</li>
-              <li>Implemented advanced features to facilitate seamless scheduling and monitoring of production timelines for Web 3-based applications.</li>
-              <li>Collaborated closely with the product management and quality assurance teams to gather requirements and ensure the platform met all technical specifications and user needs.</li>
-              <li>Conducted thorough testing and debugging of the platform, leading to a 25% reduction in production bottlenecks and a 15% increase in customer satisfaction due to improved delivery timelines.</li>
-            </ul>
-          </div>
-          <div class="experience-image">
-            <img src="images/related-webpages-svgrepo-com.svg" alt="Software Developer Intern">
-          </div>
+        <div class="profile-pic-wrapper large-pic-wrapper focus-pic-wrapper" aria-hidden="true">
+          <img src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj Lakkimsetty" class="profile-pic-large animated-float high-quality-pic larger-pic focus-pic">
         </div>
-        <div class="experience-item">
-          <div class="experience-image">
-            <img src="images/mac_os_light__6mb5pqhztcie_large.svg" alt="Data Science Intern">
-          </div>
-          <div class="experience-content">
-            <h3 class="experience-title">Data Science Intern</h3>
-            <p class="experience-company">SMART KNOWER, India</p>
-            <p class="experience-date">November 2021 - January 2022</p>
-            <ul class="experience-list">
-              <li>Utilized Python and SQL to analyze large datasets, resulting in the identification of key trends and insights.</li>
-              <li>Collaborated with cross-functional teams to effectively translate data findings into actionable business recommendations, creating a culture that promotes data-driven decision-making.</li>
-              <li>Developed and implemented a machine learning model that improved 20%, contributing to the optimization of useful data extraction methods and models.</li>
-            </ul>
-          </div>
+        <h1 class="hello-rotator" id="hero-title">
+          <span class="hello-text gradient-text">Hello</span>
+          <span class="hello-text gradient-text" style="display:none;">Bonjour</span>
+          <span class="hello-text gradient-text" style="display:none;">Hola</span>
+          <span class="hello-text gradient-text" style="display:none;">Ciao</span>
+          <span class="hello-text gradient-text" style="display:none;">Hallo</span>
+          <span class="hello-text gradient-text" style="display:none;">नमस्ते</span>
+          <span class="hello-text gradient-text" style="display:none;">こんにちは</span>
+          <span class="hello-text gradient-text" style="display:none;">안녕하세요</span>
+          <span class="hello-text gradient-text" style="display:none;">Olá</span>
+          <span class="hello-text gradient-text" style="display:none;">Привет</span>
+          <span class="hello-text gradient-text" style="display:none;">مرحبا</span>
+          <span class="hello-text gradient-text" style="display:none;">你好</span>
+        </h1>
+        <div class="hero-roles" aria-label="Roles">
+          <span class="role-badge ios">iOS Developer</span>
+          <span class="role-badge uiux">UI/UX Designer</span>
+          <span class="role-badge cv">Computer Vision</span>
         </div>
-      </section>
-      
-
-    <section id="projects" class="projects-section">
-      <h2 class="section-title">Projects</h2>
-      <div class="project-item">
-        <h3 class="project-title">Blog Page with an Inbuilt Chatting System</h3>
-        <p class="project-date">January 2022 - April 2022</p>
-        <p class="project-description">Developed a blog page with an inbuilt chatting system, integrating GraphQL for data retrieval, schema creation, and model development. Utilized GraphCMS for efficient content management, enabling seamless integration of the chatting system with the blog platform.</p>
-      </div>
-      <div class="project-item">
-        <h3 class="project-title">ETL and EDA Analysis</h3>
-        <p class="project-date">March 2021 - December 2021</p>
-        <p class="project-description">Gained experience working with EDA and ETL techniques in machine learning, which helped me understand data and prepare it for modeling, ensuring accurate results.</p>
-      </div>
-      <div class="project-item">
-        <h3 class="project-title">Comparative Analysis of MongoDB and DynamoDB on Chicago Food Safety Inspection Data</h3>
-        <p class="project-date">October 2023 - December 2023</p>
-        <p class="project-description">Evaluated the performance of both databases in terms of data retrieval, storage, and scalability, considering the specific requirements of the food safety inspection domain.</p>
-      </div>
-      <div class="project-item">
-        <h3 class="project-title">Identification of LLM Generated Text Using NLP & ML Techniques </h3>
-        <p class="project-date">January 2024 - May 2024</p>
-        <p class="project-description">SVM and BERT models were for detecting AI generated text in a dataset of essays. The SVM model achieved a high accuracy of 99.64% on the validation set, while the BERT model achieved 100.00% validation accuracy on the original dataset.The report also explores the use of K-Means clustering to identify patterns in the text data</p>
+        <p class="hero-subtitle">Building beautiful, intuitive, and intelligent experiences for everyone.</p>
+        <div class="hero-btn-group">
+          <a href="resume/Mrinal_Resume.pdf" class="btn hero-btn animated-btn download-btn" target="_blank" aria-label="Download Resume">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
       </div>
     </section>
-
-    <section id="volunteer" class="volunteer-section">
-      <h2 class="section-title">Volunteer Experience</h2>
-      <div class="volunteer-item">
-        <h3 class="volunteer-title">Design Lead</h3>
-        <p class="volunteer-organization">MEDUSA Council, Sikkim, India</p>
-        <p class="volunteer-date">November 2022 - June 2023</p>
-        <p class="volunteer-description">Contributed as a proactive and innovative designer for the MEDUSA Council in Sikkim, India, creating visually captivating designs in UI/UX that effectively communicated the intended message.</p>
-      </div>
-      <div class="volunteer-item">
-        <h3 class="volunteer-title">Math Tutor</h3>
-        <p class="volunteer-date">March 2020 - November 2022</p>
-        <p class="volunteer-description">Tailored tutoring sessions to the specific needs of each student, fostering a supportive learning environment and promoting engagement with the material.</p>
+    <section id="about" class="about-section minimal-section vibrant-section" aria-labelledby="about-title">
+      <h2 class="gradient-text" id="about-title">About</h2>
+      <p>I am a passionate data science and software development professional with a strong background in various technologies and programming languages. Currently pursuing an MS in Data Science at Illinois Institute of Technology, with a BTech in Computer Science Engineering.</p>
+    </section>
+    <section id="experience" class="experience-section minimal-section vibrant-section" aria-labelledby="experience-title">
+      <h2 class="gradient-text" id="experience-title">Experience</h2>
+      <div class="exp-grid">
+        <article class="exp-card animated-card" aria-labelledby="exp1-title">
+          <h3 id="exp1-title">Software Developer Intern</h3>
+          <span>TRST01, India</span>
+          <span>Jan 2023 - May 2023</span>
+          <ul>
+            <li>Designed and programmed a platform to track and manage production of goods across projects.</li>
+            <li>Implemented features for scheduling and monitoring production timelines for Web 3-based apps.</li>
+            <li>Collaborated with product and QA teams to meet technical and user requirements.</li>
+            <li>Testing/debugging led to 25% reduction in bottlenecks and 15% higher customer satisfaction.</li>
+          </ul>
+        </article>
+        <article class="exp-card animated-card" aria-labelledby="exp2-title">
+          <h3 id="exp2-title">Data Science Intern</h3>
+          <span>SMART KNOWER, India</span>
+          <span>Nov 2021 - Jan 2022</span>
+          <ul>
+            <li>Analyzed large datasets with Python and SQL to identify trends and insights.</li>
+            <li>Translated data findings into actionable business recommendations.</li>
+            <li>Developed ML models (SVM, BERT) for text analysis, achieving high accuracy.</li>
+          </ul>
+        </article>
       </div>
     </section>
-
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fab fa-github"></i>
-            <a href="https://github.com/mrinalrajl">Mrinal12324</a> 
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:mrinalrajnaidu@gmail.com">mrinalrajnaidu@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <i class="fab fa-linkedin"></i>
-            <a href="https://www.linkedin.com/in/L-Mrinal-Raj" target="_blank">LinkedIn</a>
-          </div>
-          <div class="contact-item">
-            <img src="images/pytorch-svgrepo-com.svg" alt="Pytorch" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/aws-lambda-svgrepo-com.svg" alt="Lamda" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/aws-svgrepo-com.svg" alt="AWS" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/ethereum-svgrepo-com.svg" alt="BlockChain" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/flutter-svgrepo-com.svg" alt="Flutter" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/graph-analytics-business-svgrepo-com.svg" alt="Analyst" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/iphone-style-smartphone-material-svgrepo-com.svg" alt="Application Developer" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/python-svgrepo-com.svg" alt="Python" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/keras-svgrepo-com.svg" alt="Keras" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/tensorflow-svgrepo-com.svg" alt="Tensor" class="contact-logo">
-          </div>
-          <div class="contact-item">
-            <img src="images/deep-learning-svgrepo-com.svg" alt="Deep Learning" class="contact-logo">
-          </div>
-        </div>
-      </section>
-      
-      
+    <section id="projects" class="projects-section minimal-section vibrant-section" aria-labelledby="projects-title">
+      <h2 class="gradient-text" id="projects-title">Projects</h2>
+      <div class="proj-grid">
+        <article class="proj-card animated-card" aria-labelledby="proj1-title">
+          <h3 id="proj1-title">LLM Generated Text Detection</h3>
+          <span>Jan 2024 - May 2024</span>
+          <p>SVM and BERT models for detecting AI-generated text in essays. SVM: 99.64% accuracy, BERT: 100% on validation. Used K-Means for pattern discovery.</p>
+        </article>
+        <article class="proj-card animated-card" aria-labelledby="proj2-title">
+          <h3 id="proj2-title">Comparative Analysis: MongoDB vs DynamoDB</h3>
+          <span>Oct 2023 - Dec 2023</span>
+          <p>Evaluated performance for food safety inspection data: retrieval, storage, scalability.</p>
+        </article>
+        <article class="proj-card animated-card" aria-labelledby="proj3-title">
+          <h3 id="proj3-title">Blog Page with Chatting System</h3>
+          <span>Jan 2022 - Apr 2022</span>
+          <p>Developed a blog with inbuilt chat using GraphQL and GraphCMS for content management.</p>
+        </article>
+        <article class="proj-card animated-card" aria-labelledby="proj4-title">
+          <h3 id="proj4-title">ETL and EDA Analysis</h3>
+          <span>Mar 2021 - Dec 2021</span>
+          <p>Worked with EDA and ETL techniques to prepare data for ML modeling.</p>
+        </article>
+      </div>
+    </section>
+    <section id="contact" class="contact-section minimal-section vibrant-section" aria-labelledby="contact-title">
+      <h2 class="gradient-text" id="contact-title">Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-link animated-btn" aria-label="Email"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://github.com/mrinalrajl" class="contact-link animated-btn" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-link animated-btn" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </section>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Mrinal Raj Lakkimsetty. All rights reserved.</p>
+  <footer role="contentinfo">
+    <p>&copy; 2024 Mrinal Raj Lakkimsetty</p>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
-
------------->
-
-
-<!DOCTYPE html>
-<html lang="en">  
