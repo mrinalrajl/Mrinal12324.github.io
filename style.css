@@ -1230,3 +1230,89 @@ body.dark .user-guide-content {
 body.dark .user-guide-close {
   color: #fff;
 }
+
+/* Professional color palette based on minimal color theory */
+:root {
+  /* Primary colors - professional blue and complementary orange */
+  --primary: #2a6cc8;
+  --primary-light: #5a8fd8;
+  --primary-dark: #1a4c98;
+  --complementary: #e67e22;
+  
+  /* Neutral colors for text and backgrounds */
+  --neutral-dark: #3c7260;
+  --neutral-medium: #b0b985;
+  --neutral-light: #edf2f7;
+  
+  /* Accent colors for highlights and calls to action */
+  --accent-1: #5e3cad; /* Purple */
+  --accent-2: #46b97c; /* Green */
+  
+  /* Gradient combinations */
+  --gradient-primary: linear-gradient(90deg, var(--primary) 0%, var(--accent-1) 100%);
+  --gradient-secondary: linear-gradient(90deg, var(--complementary) 0%, var(--primary) 100%);
+}
+
+/* Apply colors to key elements */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.color-bg {
+  background: linear-gradient(120deg, var(--complementary) 0%, var(--accent-1) 40%, var(--primary) 80%, var(--neutral-light) 100%);
+  opacity: 0.85;
+}
+
+.cursor-dot {
+  background: var(--primary);
+}
+
+.cursor-outline {
+  border: 2px solid var(--primary);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+
+.role-badge.ios {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.role-badge.uiux {
+  background: linear-gradient(90deg, var(--complementary) 0%, var(--accent-1) 100%);
+}
+
+.role-badge.cv {
+  background: linear-gradient(90deg, var(--accent-1) 0%, var(--primary) 100%);
+}
+
+.hero-subtitle {
+  color: var(--accent-1);
+}
+
+
+/* Dark mode overrides */
+body.dark .gradient-text {
+  background: linear-gradient(90deg, var(--primary-light) 0%, var(--complementary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark .nav-link:hover {
+  color: var(--primary-light);
+}
+
+body.dark .contact-link {
+  background: linear-gradient(90deg, var(--primary-dark) 0%, var(--accent-1) 100%);
+}
+
+body.dark .contact-link:hover {
+  background: linear-gradient(90deg, var(--accent-1) 0%, var(--primary-light) 100%);
+}
