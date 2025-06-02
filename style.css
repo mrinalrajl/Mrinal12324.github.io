@@ -502,70 +502,65 @@ html, body {
 /* Theme Toggle Button */
 .theme-toggle {
   position: fixed;
-  top: 24px;
+  bottom: 32px;
   right: 32px;
+  top: auto;
+  left: auto;
   z-index: 200;
-  width: 48px;
-  height: 48px;
-  background: none;
-  border: none;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
   outline: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background 0.2s;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s;
 }
 .theme-toggle:hover {
-  background: rgba(0,0,0,0.06);
+  background: #f5f5f5;
+  border-color: #bdbdbd;
 }
-.theme-icon {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  pointer-events: none;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: opacity 0.3s, transform 0.5s cubic-bezier(.22,1,.36,1);
+.theme-toggle:focus-visible {
+  box-shadow: 0 0 0 3px #90caf9;
 }
-.theme-icon.moon {
-  left: 10px;
-  top: 10px;
-  background: radial-gradient(circle at 60% 40%, #fff 60%, #e0e0e0 100%);
-  border-radius: 50%;
-  box-shadow: -6px 0 0 0 #222 inset;
+.theme-toggle .theme-icon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 1;
-  z-index: 1;
+  transform: none;
+  transition: color 0.2s;
 }
-.theme-toggle.animating .theme-icon.moon {
-  opacity: 1;
-  transform: scale(2.5);
-  transition: opacity 0.3s, transform 0.7s cubic-bezier(.22,1,.36,1);
+.theme-toggle .theme-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
 }
-.theme-icon.star {
-  left: 10px;
-  top: 10px;
-  width: 28px;
-  height: 28px;
-  background: none;
-  opacity: 0;
-  z-index: 2;
+.theme-toggle .theme-icon.sun {
+  color: #fbc02d;
+  display: none;
 }
-.theme-icon.star::before {
-  content: '\2605';
-  font-size: 28px;
+.theme-toggle .theme-icon.moon {
+  color: #222;
+  display: block;
+}
+body.dark .theme-toggle {
+  background: #232323;
+  border-color: #333;
+}
+body.dark .theme-toggle .theme-icon.sun {
   color: #ffe066;
-  position: absolute;
-  left: 0; top: 0;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 6px #ffe06688);
+  display: block;
 }
-.theme-toggle.animating .theme-icon.star {
-  opacity: 1;
-  transform: scale(2.5) rotate(20deg);
-  transition: opacity 0.3s 0.3s, transform 0.7s cubic-bezier(.22,1,.36,1) 0.3s;
+body.dark .theme-toggle .theme-icon.moon {
+  display: none;
 }
 
 /* Dark Mode Colors */

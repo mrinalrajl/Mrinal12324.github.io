@@ -139,33 +139,62 @@ window.addEventListener('DOMContentLoaded', () => {
   // Theme toggle logic
   const themeBtn = document.querySelector('.theme-toggle');
   const body = document.body;
-  let dark = localStorage.getItem('theme') === 'dark';
-  if (dark) body.classList.add('dark');
 
-  function animateThemeSwitch() {
-    // Create moon overlay
-    let moon = document.createElement('div');
-    moon.className = 'theme-moon-overlay';
-    document.body.appendChild(moon);
-    setTimeout(() => {
-      moon.classList.add('expand');
-    }, 10);
-    setTimeout(() => {
-      body.classList.toggle('dark');
-      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-      moon.classList.add('star');
-    }, 500);
-    setTimeout(() => {
-      moon.classList.add('fade');
-    }, 1100);
-    setTimeout(() => {
-      moon.remove();
-    }, 1400);
+  // Helper: get EST hour
+  function getESTHour() {
+    const now = new Date();
+    // EST is UTC-5, but account for DST (EDT is UTC-4)
+    // We'll use New York time as reference
+    const est = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    return est.getHours();
   }
 
+  // Set theme based on EST time (7pm-7am = dark)
+  function setThemeByEST(auto = false) {
+    const hour = getESTHour();
+    const shouldBeDark = hour >= 19 || hour < 7;
+    if (shouldBeDark) {
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+    }
+    if (themeBtn) {
+      const isDark = body.classList.contains('dark');
+      themeBtn.querySelector('.theme-icon.sun').style.display = isDark ? 'block' : 'none';
+      themeBtn.querySelector('.theme-icon.moon').style.display = isDark ? 'none' : 'block';
+    }
+    if (auto) localStorage.setItem('theme', shouldBeDark ? 'dark' : 'light');
+  }
+
+  // On load, use EST time unless user has manually toggled
+  if (!localStorage.getItem('theme')) {
+    setThemeByEST(true);
+  } else {
+    // Use saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+    }
+    if (themeBtn) {
+      const isDark = body.classList.contains('dark');
+      themeBtn.querySelector('.theme-icon.sun').style.display = isDark ? 'block' : 'none';
+      themeBtn.querySelector('.theme-icon.moon').style.display = isDark ? 'none' : 'block';
+    }
+  }
+
+  // Manual toggle always overrides auto
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
-      animateThemeSwitch();
+      const isDark = body.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeBtn.querySelector('.theme-icon.sun').style.display = isDark ? 'block' : 'none';
+      themeBtn.querySelector('.theme-icon.moon').style.display = isDark ? 'none' : 'block';
     });
   }
+
+  // Optionally, update theme every 10 minutes in case user leaves tab open
+  setInterval(() => {
+    if (!localStorage.getItem('theme')) setThemeByEST();
+  }, 600000);
 });
