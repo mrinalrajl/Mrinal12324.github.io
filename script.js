@@ -135,4 +135,27 @@ window.addEventListener('DOMContentLoaded', () => {
     ball.className = 'ball';
     bg.appendChild(ball);
   }
+
+  // Theme toggle logic
+  const themeBtn = document.querySelector('.theme-toggle');
+  const body = document.body;
+  let dark = localStorage.getItem('theme') === 'dark';
+  if (dark) body.classList.add('dark');
+
+  function animateThemeSwitch() {
+    themeBtn.classList.add('animating');
+    setTimeout(() => {
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    }, 400); // moon expands
+    setTimeout(() => {
+      themeBtn.classList.remove('animating');
+    }, 1100); // star fades out
+  }
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      animateThemeSwitch();
+    });
+  }
 });
