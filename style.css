@@ -181,37 +181,66 @@ main {
   margin-bottom: 32px;
 }
 .resume-link {
-  font-size: 1rem;
-  color: #181818;
-  text-decoration: underline;
-  background: none;
+  display: inline-block;
+  font-size: 1.08rem;
+  font-family: inherit;
+  color: #fff;
+  background: #1976d2;
   border: none;
-  padding: 0;
+  border-radius: 20px;
+  padding: 14px 36px;
   font-weight: 600;
+  box-shadow: 0 2px 8px 0 rgba(25, 118, 210, 0.10);
+  text-decoration: none;
   position: relative;
   overflow: hidden;
-  transition: color 0.15s;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background 0.18s cubic-bezier(.22,1,.36,1), box-shadow 0.18s, transform 0.16s;
+  isolation: isolate;
 }
 .resume-link::after {
   content: '';
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: 2px;
-  background: #181818;
+  height: 2.5px;
+  background: #fff;
+  opacity: 0.18;
   transform: scaleX(0);
-  transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+  transition: transform 0.32s cubic-bezier(.22,1,.36,1);
   transform-origin: left;
+  border-radius: 2px;
+  z-index: 1;
 }
 .resume-link:hover {
-  color: #222;
+  background: #1251a3;
+  box-shadow: 0 4px 16px 0 rgba(25, 118, 210, 0.13);
+  transform: translateY(-1px) scale(1.02);
 }
 .resume-link:hover::after {
   transform: scaleX(1);
 }
 .resume-link:active {
-  color: #888;
+  background: #0d376e;
 }
-
+.resume-link:focus-visible {
+  box-shadow: 0 0 0 3px #90caf9;
+}
+.resume-link span {
+  position: relative;
+  z-index: 2;
+}
+body.dark .resume-link {
+  background: #90caf9;
+  color: #181818;
+}
+body.dark .resume-link:hover {
+  background: #1976d2;
+}
+body.dark .resume-link:active {
+  background: #003c8f;
+}
 @media (max-width: 900px) {
   .hero-section {
     grid-template-columns: 1fr;
@@ -572,4 +601,46 @@ body.dark .contact-link {
 body.dark .bouncing-ball-bg .ball {
   background: #fff;
   opacity: 0.08;
+}
+
+/* Moon Overlay Animation */
+.theme-moon-overlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  background: #fffbe6;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 #ffe066;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.95;
+  transition: width 0.5s cubic-bezier(.22,1,.36,1), height 0.5s cubic-bezier(.22,1,.36,1), box-shadow 0.5s, opacity 0.4s 0.9s;
+}
+.theme-moon-overlay.expand {
+  width: 200vw;
+  height: 200vw;
+  box-shadow: 0 0 0 80px #ffe06644;
+  opacity: 1;
+}
+.theme-moon-overlay.star::after {
+  content: '\2605';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  font-size: 2.5rem;
+  color: #ffe066;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 12px #ffe06688);
+  transition: opacity 0.3s;
+}
+.theme-moon-overlay.fade {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+body.dark .theme-moon-overlay {
+  background: #232323;
 }

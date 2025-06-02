@@ -143,14 +143,24 @@ window.addEventListener('DOMContentLoaded', () => {
   if (dark) body.classList.add('dark');
 
   function animateThemeSwitch() {
-    themeBtn.classList.add('animating');
+    // Create moon overlay
+    let moon = document.createElement('div');
+    moon.className = 'theme-moon-overlay';
+    document.body.appendChild(moon);
+    setTimeout(() => {
+      moon.classList.add('expand');
+    }, 10);
     setTimeout(() => {
       body.classList.toggle('dark');
       localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-    }, 400); // moon expands
+      moon.classList.add('star');
+    }, 500);
     setTimeout(() => {
-      themeBtn.classList.remove('animating');
-    }, 1100); // star fades out
+      moon.classList.add('fade');
+    }, 1100);
+    setTimeout(() => {
+      moon.remove();
+    }, 1400);
   }
 
   if (themeBtn) {
