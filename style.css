@@ -449,7 +449,6 @@ html, body {
 }
 .hero-section.in-view, .about-section.in-view, .experience-section.in-view, .projects-section.in-view, .contact-section.in-view {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* Animate experience/project items with staggered delay */
