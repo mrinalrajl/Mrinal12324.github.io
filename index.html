@@ -11,147 +11,107 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="color-bg"></div>
-  <header class="main-header vibrant top-navbar alicelee-navbar" role="banner">
-    <div class="navbar-content">
-      <a href="#hero" class="navbar-logo gradient-text" aria-label="Go to hero section">
-        <span class="navbar-logo-apple" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:8px;">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
-            <path d="M20.5 7.5c-1.1 0-2.4-.7-3.2-.7-.8 0-2 .6-3.2.6-1.3 0-2.7-.6-3.7-1.6C8.2 5.2 7.2 3.7 7.2 2.2c0-.1 0-.2.1-.2.1-.1.2-.1.3-.1.7 0 2.1.5 3.2 1.5 1.1 1 2.1 2.5 2.1 4.1 0 .1 0 .2-.1.2-.1.1-.2.1-.3.1zm-6.2 13.2c-1.2 0-2.3-.3-3.2-.8-.9-.5-1.7-1.2-2.3-2.1-.6-.9-1-2-1-3.2 0-1.2.3-2.3.8-3.2.5-.9 1.2-1.7 2.1-2.3.9-.6 2-.9 3.2-.9 1.2 0 2.3.3 3.2.8.9.5 1.7 1.2 2.3 2.1.6.9 1 2 1 3.2 0 1.2-.3 2.3-.8 3.2-.5.9-1.2 1.7-2.1 2.3-.9.6-2 .9-3.2.9z" fill="#fff"/>
-            <circle cx="22.5" cy="5.5" r="2.5" fill="#fff"/>
-          </svg>
-        </span>
-        <span style="vertical-align:middle;">Mrinal</span>
-      </a>
-      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <a href="#about" class="nav-link" aria-label="About section">About</a>
-        <a href="#experience" class="nav-link" aria-label="Experience section">Experience</a>
-        <a href="#projects" class="nav-link" aria-label="Projects section">Projects</a>
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="site-logo" aria-label="Go to hero section">Mrinal</a>
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
-  <div class="theme-timer theme-timer-bottom" aria-live="polite">
-    <span id="theme-label">Dark mode in</span>
-    <span id="theme-timer"></span>
-  </div>
-  <div id="user-guide" class="user-guide-modal">
-    <div class="user-guide-content">
-      <button class="user-guide-close" aria-label="Close user guide">&times;</button>
-      <h2>Welcome to My Portfolio!</h2>
-      <ul>
-        <li><b>Navigation:</b> Use the top bar or hamburger menu to jump to any section.</li>
-        <li><b>Custom Cursor:</b> Enjoy a modern, animated pointer for interactive elements.</li>
-        <li><b>Theme:</b> The site automatically switches between light and dark mode based on the time. See the timer at the bottom right!</li>
-        <li><b>Resume:</b> Download my resume with the glassy button in the hero section.</li>
-        <li><b>Contact:</b> Use the colorful links at the bottom to reach out via email, GitHub, or LinkedIn.</li>
-      </ul>
-      <p style="margin-bottom:0;">Enjoy exploring! ✨ </p>
-    </div>
-  </div>
   <main id="main-content" tabindex="-1">
-    <section id="hero" class="hero-section vibrant-section" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <div class="profile-pic-wrapper large-pic-wrapper focus-pic-wrapper" aria-hidden="true">
-          <img src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj Lakkimsetty" class="profile-pic-large animated-float high-quality-pic larger-pic focus-pic">
+    <section id="hero" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-image">
+          <img src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj Lakkimsetty portrait" />
         </div>
-        <h1 class="hello-rotator" id="hero-title">
-          <span class="hello-text gradient-text">Hello</span>
-          <span class="hello-text gradient-text" style="display:none;">Bonjour</span>
-          <span class="hello-text gradient-text" style="display:none;">Hola</span>
-          <span class="hello-text gradient-text" style="display:none;">Ciao</span>
-          <span class="hello-text gradient-text" style="display:none;">Hallo</span>
-          <span class="hello-text gradient-text" style="display:none;">नमस्ते</span>
-          <span class="hello-text gradient-text" style="display:none;">こんにちは</span>
-          <span class="hello-text gradient-text" style="display:none;">안녕하세요</span>
-          <span class="hello-text gradient-text" style="display:none;">Olá</span>
-          <span class="hello-text gradient-text" style="display:none;">Привет</span>
-          <span class="hello-text gradient-text" style="display:none;">مرحبا</span>
-          <span class="hello-text gradient-text" style="display:none;">你好</span>
-        </h1>
-        <div class="hero-roles" aria-label="Roles">
-          <span class="role-badge ios">iOS Developer</span>
-          <span class="role-badge uiux">UI/UX Designer</span>
-          <span class="role-badge cv">Computer Vision</span>
-        </div>
-        <p class="hero-subtitle">Building beautiful, intuitive, and intelligent experiences for everyone.</p>
-        <div class="hero-btn-group">
-          <a href="resume/Mrinal_Resume.pdf" class="btn hero-btn animated-btn download-btn" target="_blank" aria-label="Download Resume">
-            <i class="fas fa-download"></i> Download Resume
-          </a>
+        <div class="hero-text">
+          <h1>Mrinal Raj Lakkimsetty</h1>
+          <h2>iOS Developer & UI/UX Designer</h2>
+          <p>Building beautiful, intuitive, and intelligent experiences for everyone.</p>
+          <a href="resume/Mrinal_Resume.pdf" class="resume-link" target="_blank">Download Resume</a>
         </div>
       </div>
     </section>
-    <section id="about" class="about-section minimal-section vibrant-section" aria-labelledby="about-title">
-      <h2 class="gradient-text" id="about-title">About</h2>
-      <p>Driven by curiosity, fueled by innovation—combining technical expertise with creative problem-solving to deliver impactful solutions and continuous growth.</p>
-    </section>
-    <section id="experience" class="experience-section minimal-section vibrant-section" aria-labelledby="experience-title">
-      <h2 class="gradient-text" id="experience-title">Experience</h2>
-      <div class="exp-grid">
-        <article class="exp-card animated-card" aria-labelledby="exp1-title">
-          <h3 id="exp1-title">Software Developer Intern</h3>
-          <span>TRST01, India</span>
-          <span>Jan 2023 - May 2023</span>
-          <ul>
-            <li>Designed and programmed a platform to track and manage production of goods across projects.</li>
-            <li>Implemented features for scheduling and monitoring production timelines for Web 3-based apps.</li>
-            <li>Collaborated with product and QA teams to meet technical and user requirements.</li>
-            <li>Testing/debugging led to 25% reduction in bottlenecks and 15% higher customer satisfaction.</li>
-          </ul>
-        </article>
-        <article class="exp-card animated-card" aria-labelledby="exp2-title">
-          <h3 id="exp2-title">Data Science Intern</h3>
-          <span>SMART KNOWER, India</span>
-          <span>Nov 2021 - Jan 2022</span>
-          <ul>
-            <li>Analyzed large datasets with Python and SQL to identify trends and insights.</li>
-            <li>Translated data findings into actionable business recommendations.</li>
-            <li>Developed ML models (SVM, BERT) for text analysis, achieving high accuracy.</li>
-          </ul>
-        </article>
+    <section id="about" class="about-section">
+      <div class="container section-grid">
+        <div class="section-title"><h2>About</h2></div>
+        <div class="section-content">
+          <p>Driven by curiosity, fueled by innovation—combining technical expertise with creative problem-solving to deliver impactful solutions and continuous growth.</p>
+        </div>
       </div>
     </section>
-    <section id="projects" class="projects-section minimal-section vibrant-section" aria-labelledby="projects-title">
-      <h2 class="gradient-text" id="projects-title">Projects</h2>
-      <div class="proj-grid">
-        <article class="proj-card animated-card" aria-labelledby="proj1-title">
-          <h3 id="proj1-title">LLM Generated Text Detection</h3>
-          <span>Jan 2024 - May 2024</span>
-          <p>SVM and BERT models for detecting AI-generated text in essays. SVM: 99.64% accuracy, BERT: 100% on validation. Used K-Means for pattern discovery.</p>
-        </article>
-        <article class="proj-card animated-card" aria-labelledby="proj2-title">
-          <h3 id="proj2-title">Comparative Analysis: MongoDB vs DynamoDB</h3>
-          <span>Oct 2023 - Dec 2023</span>
-          <p>Evaluated performance for food safety inspection data: retrieval, storage, scalability.</p>
-        </article>
-        <article class="proj-card animated-card" aria-labelledby="proj3-title">
-          <h3 id="proj3-title">Blog Page with Chatting System</h3>
-          <span>Jan 2022 - Apr 2022</span>
-          <p>Developed a blog with inbuilt chat using GraphQL and GraphCMS for content management.</p>
-        </article>
-        <article class="proj-card animated-card" aria-labelledby="proj4-title">
-          <h3 id="proj4-title">ETL and EDA Analysis</h3>
-          <span>Mar 2021 - Dec 2021</span>
-          <p>Worked with EDA and ETL techniques to prepare data for ML modeling.</p>
-        </article>
+    <section id="experience" class="experience-section">
+      <div class="container section-grid">
+        <div class="section-title"><h2>Experience</h2></div>
+        <div class="section-content experience-list">
+          <div class="exp-item">
+            <h3>Software Developer Intern</h3>
+            <span>TRST01, India &mdash; Jan 2023 - May 2023</span>
+            <ul>
+              <li>Designed and programmed a platform to track and manage production of goods across projects.</li>
+              <li>Implemented features for scheduling and monitoring production timelines for Web 3-based apps.</li>
+              <li>Collaborated with product and QA teams to meet technical and user requirements.</li>
+              <li>Testing/debugging led to 25% reduction in bottlenecks and 15% higher customer satisfaction.</li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <h3>Data Science Intern</h3>
+            <span>SMART KNOWER, India &mdash; Nov 2021 - Jan 2022</span>
+            <ul>
+              <li>Analyzed large datasets with Python and SQL to identify trends and insights.</li>
+              <li>Translated data findings into actionable business recommendations.</li>
+              <li>Developed ML models (SVM, BERT) for text analysis, achieving high accuracy.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
-    <section id="contact" class="contact-section minimal-section vibrant-section" aria-labelledby="contact-title">
-      <h2 class="gradient-text" id="contact-title">Contact</h2>
-      <div class="contact-links">
-        <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-link animated-btn" aria-label="Email"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://github.com/mrinalrajl" class="contact-link animated-btn" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-link animated-btn" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <section id="projects" class="projects-section">
+      <div class="container section-grid">
+        <div class="section-title"><h2>Projects</h2></div>
+        <div class="section-content project-list">
+          <div class="project-item">
+            <h3>LLM Generated Text Detection</h3>
+            <span>Jan 2024 - May 2024</span>
+            <p>SVM and BERT models for detecting AI-generated text in essays. SVM: 99.64% accuracy, BERT: 100% on validation. Used K-Means for pattern discovery.</p>
+          </div>
+          <div class="project-item">
+            <h3>Comparative Analysis: MongoDB vs DynamoDB</h3>
+            <span>Oct 2023 - Dec 2023</span>
+            <p>Evaluated performance for food safety inspection data: retrieval, storage, scalability.</p>
+          </div>
+          <div class="project-item">
+            <h3>Blog Page with Chatting System</h3>
+            <span>Jan 2022 - Apr 2022</span>
+            <p>Developed a blog with inbuilt chat using GraphQL and GraphCMS for content management.</p>
+          </div>
+          <div class="project-item">
+            <h3>ETL and EDA Analysis</h3>
+            <span>Mar 2021 - Dec 2021</span>
+            <p>Worked with EDA and ETL techniques to prepare data for ML modeling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact-section">
+      <div class="container section-grid">
+        <div class="section-title"><h2>Contact</h2></div>
+        <div class="section-content contact-list">
+          <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://github.com/mrinalrajl" class="contact-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
       </div>
     </section>
   </main>
-  <footer role="contentinfo">
-    <p>&copy; 2024 Mrinal Raj Lakkimsetty</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2024 Mrinal Raj Lakkimsetty</p>
+    </div>
   </footer>
   <script src="script.js"></script>
 </body>
