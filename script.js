@@ -20,6 +20,13 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('in-view');
+      // Animate child items with stagger
+      if (entry.target.classList.contains('experience-section') || entry.target.classList.contains('projects-section')) {
+        const items = entry.target.querySelectorAll('.exp-item, .project-item');
+        items.forEach((item, idx) => {
+          setTimeout(() => item.classList.add('in-view'), idx * 120);
+        });
+      }
     }
   });
 }, { threshold: 0.15 });
@@ -118,4 +125,14 @@ window.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('userGuideSeen', '1');
     }
   });
+});
+
+// Minimal bouncing ball background effect
+window.addEventListener('DOMContentLoaded', () => {
+  const bg = document.querySelector('.bouncing-ball-bg');
+  if (bg && !bg.querySelector('.ball')) {
+    const ball = document.createElement('div');
+    ball.className = 'ball';
+    bg.appendChild(ball);
+  }
 });
