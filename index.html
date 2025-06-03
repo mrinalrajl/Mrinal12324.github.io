@@ -120,7 +120,7 @@
       <div class="container section-grid">
         <div class="section-title"><h2>Contact</h2></div>
         <div class="section-content contact-list">
-          <p class="apple-lead">Let’s connect! Reach out for collaboration, opportunities, or just to say hi.</p>
+          <p class="apple-lead">Let's connect! Reach out for collaboration, opportunities, or just to say hi.</p>
           <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
           <a href="https://github.com/mrinalrajl" class="contact-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -134,32 +134,5 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-    // Apple.com-inspired section and card animation on scroll
-    function animateAppleSections() {
-      const sections = document.querySelectorAll('.apple-section');
-      const cards = document.querySelectorAll('.exp-item, .project-item');
-      const trigger = window.innerHeight * 0.92;
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < trigger) section.classList.add('in-view');
-      });
-      // Staggered animation for cards
-      let delay = 0;
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < trigger) {
-          setTimeout(() => card.classList.add('in-view'), delay);
-          delay += 120;
-        }
-      });
-    }
-    window.addEventListener('scroll', animateAppleSections);
-    window.addEventListener('DOMContentLoaded', animateAppleSections);
-    // Animate hero on load
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('.apple-hero').classList.add('in-view');
-    });
-  </script>
 </body>
 </html>
