@@ -12,14 +12,6 @@
 </head>
 <body>
   <div class="bouncing-ball-bg" aria-hidden="true"></div>
-  <button class="theme-toggle" aria-label="Toggle dark mode">
-    <span class="theme-icon moon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-    </span>
-    <span class="theme-icon sun" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 7.07-1.41-1.41M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41"/></svg>
-    </span>
-  </button>
   <header class="site-header" role="banner">
     <div class="container nav-container">
       <a href="#hero" class="site-logo" aria-label="Go to hero section">Mrinal</a>
@@ -32,28 +24,33 @@
     </div>
   </header>
   <main id="main-content" tabindex="-1">
-    <section id="hero" class="hero-section">
+    <section id="hero" class="hero-section apple-hero">
       <div class="container hero-grid">
         <div class="hero-image">
           <img src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj Lakkimsetty portrait" />
         </div>
         <div class="hero-text">
-          <h1>Mrinal Raj Lakkimsetty</h1>
-          <h2>iOS Developer & Ui/Ux Designer</h2>
-          <p>Building beautiful, intuitive, and intelligent experiences for everyone.</p>
-          <a href="resume/Mrinal_Resume.pdf" class="resume-link" target="_blank">Download Resume</a>
+          <h1 class="apple-headline">Mrinal Raj Lakkimsetty</h1>
+          <h2 class="apple-subheadline">iOS Developer &amp; UI/UX Designer</h2>
+          <p class="apple-lead">Building beautiful, intuitive, and intelligent experiences for everyone.</p>
+          <a href="resume/Mrinal_Resume.pdf" class="resume-link apple-btn" target="_blank">Download Resume</a>
         </div>
       </div>
     </section>
-    <section id="about" class="about-section">
+    <section id="about" class="about-section apple-section">
       <div class="container section-grid">
         <div class="section-title"><h2>About</h2></div>
         <div class="section-content">
-          <p>Driven by curiosity, fueled by innovation—combining technical expertise with creative problem-solving to deliver impactful solutions and continuous growth.</p>
+          <p class="apple-lead">Driven by curiosity, fueled by innovation—combining technical expertise with creative problem-solving to deliver impactful solutions and continuous growth.</p>
+          <ul class="about-list">
+            <li><strong>Location:</strong> Hyderabad, India</li>
+            <li><strong>Expertise:</strong> iOS, UI/UX, Data Science, Web3, ML</li>
+            <li><strong>Interests:</strong> Product Design, AI, Minimalism, Apple Ecosystem</li>
+          </ul>
         </div>
       </div>
     </section>
-    <section id="experience" class="experience-section">
+    <section id="experience" class="experience-section apple-section">
       <div class="container section-grid">
         <div class="section-title"><h2>Experience</h2></div>
         <div class="section-content experience-list">
@@ -61,55 +58,69 @@
             <h3>Software Developer Intern</h3>
             <span>TRST01, India &mdash; Jan 2023 - May 2023</span>
             <ul>
-              <li>Designed and programmed a platform to track and manage production of goods across projects.</li>
-              <li>Implemented features for scheduling and monitoring production timelines for Web 3-based apps.</li>
-              <li>Collaborated with product and QA teams to meet technical and user requirements.</li>
-              <li>Testing/debugging led to 25% reduction in bottlenecks and 15% higher customer satisfaction.</li>
+              <li>Built a platform to track/manage production across projects.</li>
+              <li>Developed scheduling and monitoring for Web3-based apps.</li>
+              <li>Collaborated with product/QA teams to meet requirements.</li>
+              <li>Reduced bottlenecks by 25%, improved satisfaction by 15%.</li>
             </ul>
           </div>
           <div class="exp-item">
             <h3>Data Science Intern</h3>
             <span>SMART KNOWER, India &mdash; Nov 2021 - Jan 2022</span>
             <ul>
-              <li>Analyzed large datasets with Python and SQL to identify trends and insights.</li>
-              <li>Translated data findings into actionable business recommendations.</li>
-              <li>Developed ML models (SVM, BERT) for text analysis, achieving high accuracy.</li>
+              <li>Analyzed large datasets with Python/SQL for insights.</li>
+              <li>Developed ML models (SVM, BERT) for text analysis.</li>
+              <li>Translated findings into actionable recommendations.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section apple-section">
       <div class="container section-grid">
         <div class="section-title"><h2>Projects</h2></div>
         <div class="section-content project-list">
           <div class="project-item">
             <h3>LLM Generated Text Detection</h3>
             <span>Jan 2024 - May 2024</span>
-            <p>SVM and BERT models for detecting AI-generated text in essays. SVM: 99.64% accuracy, BERT: 100% on validation. Used K-Means for pattern discovery.</p>
+            <ul>
+              <li>Built SVM and BERT models to detect AI-generated text in essays.</li>
+              <li>Achieved 99.64% (SVM) and 100% (BERT) validation accuracy.</li>
+              <li>Used K-Means for pattern discovery in text data.</li>
+            </ul>
           </div>
           <div class="project-item">
             <h3>Comparative Analysis: MongoDB vs DynamoDB</h3>
             <span>Oct 2023 - Dec 2023</span>
-            <p>Evaluated performance for food safety inspection data: retrieval, storage, scalability.</p>
+            <ul>
+              <li>Benchmarked food safety inspection data: retrieval, storage, scalability.</li>
+              <li>Produced actionable recommendations for database selection.</li>
+            </ul>
           </div>
           <div class="project-item">
             <h3>Blog Page with Chatting System</h3>
             <span>Jan 2022 - Apr 2022</span>
-            <p>Developed a blog with inbuilt chat using GraphQL and GraphCMS for content management.</p>
+            <ul>
+              <li>Developed a blog with inbuilt chat using GraphQL and GraphCMS.</li>
+              <li>Enabled real-time communication and content management.</li>
+            </ul>
           </div>
           <div class="project-item">
             <h3>ETL and EDA Analysis</h3>
             <span>Mar 2021 - Dec 2021</span>
-            <p>Worked with EDA and ETL techniques to prepare data for ML modeling.</p>
+            <ul>
+              <li>Applied ETL and EDA techniques to prepare data for ML modeling.</li>
+              <li>Improved data quality and model performance.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section apple-section">
       <div class="container section-grid">
         <div class="section-title"><h2>Contact</h2></div>
         <div class="section-content contact-list">
+          <p class="apple-lead">Let’s connect! Reach out for collaboration, opportunities, or just to say hi.</p>
           <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
           <a href="https://github.com/mrinalrajl" class="contact-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -123,5 +134,32 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script>
+    // Apple.com-inspired section and card animation on scroll
+    function animateAppleSections() {
+      const sections = document.querySelectorAll('.apple-section');
+      const cards = document.querySelectorAll('.exp-item, .project-item');
+      const trigger = window.innerHeight * 0.92;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < trigger) section.classList.add('in-view');
+      });
+      // Staggered animation for cards
+      let delay = 0;
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < trigger) {
+          setTimeout(() => card.classList.add('in-view'), delay);
+          delay += 120;
+        }
+      });
+    }
+    window.addEventListener('scroll', animateAppleSections);
+    window.addEventListener('DOMContentLoaded', animateAppleSections);
+    // Animate hero on load
+    window.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.apple-hero').classList.add('in-view');
+    });
+  </script>
 </body>
 </html>
