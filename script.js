@@ -140,3 +140,55 @@ function animateAppleSections() {
 
 window.addEventListener('scroll', animateAppleSections);
 window.addEventListener('DOMContentLoaded', animateAppleSections);
+
+// --- Dots and Lines UI: OS Icon Dots ---
+const osIcons = [
+  'fa-windows',
+  'fa-apple',
+  'fa-linux',
+  'fa-android',
+  'fa-chrome',
+  'fa-firefox',
+  'fa-ubuntu',
+  'fa-redhat',
+  'fa-freebsd',
+  'fa-raspberry-pi',
+  'fa-centos',
+  'fa-fedora',
+  'fa-android',
+  'fa-apple',
+  'fa-windows',
+];
+
+function getRandomOSIcons(count) {
+  const icons = [...osIcons];
+  const result = [];
+  for (let i = 0; i < count; i++) {
+    if (icons.length === 0) break;
+    const idx = Math.floor(Math.random() * icons.length);
+    result.push(icons.splice(idx, 1)[0]);
+  }
+  return result;
+}
+
+function updateSectionSeparators() {
+  const separators = document.querySelectorAll('.section-separator');
+  separators.forEach(sep => {
+    sep.innerHTML = '';
+    const line1 = document.createElement('div');
+    line1.className = 'line';
+    sep.appendChild(line1);
+    const dot = document.createElement('span');
+    dot.className = 'dot os-dot';
+    const icon = document.createElement('i');
+    const iconClass = getRandomOSIcons(1)[0];
+    icon.className = `fab ${iconClass}`;
+    dot.appendChild(icon);
+    sep.appendChild(dot);
+    const line2 = document.createElement('div');
+    line2.className = 'line';
+    sep.appendChild(line2);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', updateSectionSeparators);
