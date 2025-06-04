@@ -309,20 +309,15 @@ main {
   color: #0071e3;
 }
 
-/* Section content hover effect */
-.apple-section .section-content {
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.apple-section .section-content:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0,113,227,0.15);
-  background: rgba(255,255,255,0.3);
+/* Remove section content hover animation - fix syntax */
+.apple-section .section-content,
+.apple-section .section-content:hover,
+.apple-section .section-content:not(:hover) {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
 }
 
 /* Footer */
@@ -352,7 +347,7 @@ footer.site-footer {
 
 @keyframes apple-slide-up {
   from { opacity: 0; transform: translateY(48px); }
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1, transform: translateY(0); }
 }
 
 .apple-hero .apple-headline {
@@ -369,11 +364,7 @@ footer.site-footer {
 
 /* Bouncing Ball Background Effect */
 .bouncing-ball-bg {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+  display: none !important;
 }
 .bouncing-ball-bg .ball {
   position: absolute;
@@ -457,4 +448,66 @@ body.dark .apple-easter-egg svg {
     width: 100%;
     padding: 14px 20px;
   }
+}
+
+/* Section content and lists styles */
+.section-content, .experience-list, .project-list, .contact-list, .about-list {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: #232336;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.section-content strong, .about-list strong {
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: 0.02em;
+}
+
+.section-content h3, .project-item h3, .exp-item h3 {
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  color: #1d1d1f;
+  margin-bottom: 0.2em;
+}
+
+.section-content ul, .about-list, .experience-list ul, .project-list ul {
+  font-size: 1rem;
+  margin: 0.5em 0 0 1.2em;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.section-content li, .about-list li, .experience-list li, .project-list li {
+  margin-bottom: 0.3em;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.section-content p, .contact-list p, .about-list p {
+  font-size: 1.08rem;
+  margin-bottom: 0.7em;
+  color: #232336;
+}
+
+.section-content:hover, .experience-list:hover, .project-list:hover, .contact-list:hover, .about-list:hover {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371, #47e7fa, #7bffb2, #a17cff, #ff5f6d);
+  background-size: 400% 400%;
+  animation: rainbow-glow 2s linear infinite;
+  box-shadow: 0 0 32px 0 rgba(255, 99, 132, 0.18), 0 0 64px 0 rgba(54, 162, 235, 0.12);
+  border-radius: 18px;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+@keyframes rainbow-glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
