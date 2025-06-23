@@ -13,28 +13,32 @@
 </head>
 <body>
   <div class="bouncing-ball-bg" aria-hidden="true"></div>
-  <header class="site-header" role="banner">
-    <div class="container nav-container">
-      <a href="#hero" class="site-logo" aria-label="Go to hero section">Mrinal Raj</a>
-      <nav class="site-nav" role="navigation" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header class="site-header cloud-navbar" role="banner">
+    <a href="#hero" class="site-logo" aria-label="Go to hero section">
+      <span class="logo-text">Mrinal Raj</span>
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="toggle-icon" aria-hidden="true">🌙</span>
+    </button>
   </header>
   <main id="main-content" tabindex="-1">
-    <section id="hero" class="hero-section apple-hero">
+    <section id="hero" class="hero-section apple-hero macos-hero">
+      <div class="macos-hero-bg"></div>
       <div class="container hero-grid">
         <div class="hero-image">
           <img src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj Lakkimsetty portrait" />
         </div>
         <div class="hero-text">
-          <h1 class="apple-headline">Mrinal Raj Lakkimsetty</h1>
-          <h2 class="apple-subheadline">iOS Developer &amp; UI/UX Designer</h2>
-          <p class="apple-lead">Building beautiful, intuitive, and intelligent experiences for everyone.</p>
-          <a href="resume/Mrinal_Resume.pdf" class="resume-link apple-btn" target="_blank">Download Resume</a>
+          <h1 class="macos-headline">Welcome to Mrinal’s Portfolio</h1>
+          <h2 class="macos-subheadline">Inspired by Liquid Glass</h2>
+          <p class="macos-lead">iOS Developer &amp; UI/UX Designer<br>Building beautiful, intuitive, and intelligent experiences for everyone.</p>
+          <a href="resume/Mrinal_Resume.pdf" class="macos-btn" target="_blank">Download Resume</a>
         </div>
       </div>
     </section>

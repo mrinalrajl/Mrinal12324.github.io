@@ -192,3 +192,43 @@ function updateSectionSeparators() {
 }
 
 document.addEventListener('DOMContentLoaded', updateSectionSeparators);
+
+// Apple macOS-style: Remove old nav/hero classes if present
+document.addEventListener('DOMContentLoaded', () => {
+  const oldClasses = ['nav-dark', 'nav-transparent', 'hero-light', 'hero-dark'];
+  const root = document.documentElement;
+
+  // Remove old classes from body
+  oldClasses.forEach(cls => {
+    document.body.classList.remove(cls);
+  });
+
+  // Add macOS glassmorphic nav and hero classes
+  document.body.classList.add('nav-macos', 'hero-macos');
+});
+
+// --- Apple macOS Section Card Animation & Section Titles ---
+function macosSectionTitles() {
+  document.querySelectorAll('.section-title h2').forEach(h2 => {
+    h2.classList.add('macos-section-title');
+  });
+}
+document.addEventListener('DOMContentLoaded', macosSectionTitles);
+
+// --- Dark Mode Toggle ---
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.querySelector('.dark-mode-toggle');
+  const icon = toggleBtn?.querySelector('.toggle-icon');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const saved = localStorage.getItem('darkMode');
+  function setDarkMode(on) {
+    document.body.classList.toggle('dark-mode', on);
+    if (icon) icon.textContent = on ? '☀️' : '🌙';
+    localStorage.setItem('darkMode', on ? '1' : '0');
+  }
+  // Initial mode
+  setDarkMode(saved === '1' || (saved === null && prefersDark));
+  toggleBtn?.addEventListener('click', () => {
+    setDarkMode(!document.body.classList.contains('dark-mode'));
+  });
+});
