@@ -21,31 +21,40 @@ This website was designed using Design Thinking Process which invloves
 
 # Mrinal Raj Lakkimsetty — Portfolio
 
-A modern, highly visual, and interactive portfolio website inspired by Apple’s macOS design language. This site showcases my experience, projects, and skills as an iOS Developer & UI/UX Designer, with a focus on minimalism, glassmorphism, and smooth, professional animations.
+A modern, Apple-inspired personal portfolio website designed to showcase my skills, experience, and projects with a focus on minimalism, glassmorphism, and smooth, professional UI/UX.
 
-## ✨ Design Highlights
-- **Apple/macOS-inspired UI:** Floating glassmorphic navigation bar, immersive hero, and section cards with soft glows and gradients.
-- **Glassmorphism:** All main sections use layered transparency, blur, and subtle borders for a premium, modern look in both light and dark modes.
-- **Professional Typography:** Clear font hierarchy using Montserrat and Inter for maximum readability and recruiter appeal.
-- **Dynamic Section Dividers:** Animated, icon-based dividers visually separate each section.
-- **Dark Mode:** Toggle for a beautiful, accessible dark theme with glass effects and high contrast.
-- **Responsive & Accessible:** Fully responsive layout, keyboard navigation, and accessible color contrast.
-- **Smooth Animations:** Apple-style transitions, floating nav, and scroll-in effects for a delightful user experience.
+## ✨ Features
+- **macOS/Apple-inspired UI:** Floating glassy navigation bar, immersive hero, and section cards with glassmorphism and colorful glows.
+- **Professional Recruiter Experience:** Clear, readable font hierarchy and card-based layout for experience and projects, making it easy for recruiters to scan and evaluate.
+- **Dark & Light Mode:** Seamless toggle with beautiful glass effects and adaptive color palette for both modes.
+- **Animated Section Dividers:** Modern, glowing, and animated dividers between sections for visual separation.
+- **Responsive Design:** Fully responsive for desktop and mobile.
+- **Smooth Animations:** Subtle, soothing transitions and scroll-in effects throughout.
+- **Accessible & Readable:** Carefully chosen font sizes, weights, and contrast for maximum readability.
 
-## 🚀 Features
-- Hero, About, Experience, Projects, and Contact sections
-- Downloadable resume
-- Animated section separators
-- Modern contact card with direct links
-- Mobile-friendly and touch-optimized
+## 🖌️ Design Philosophy
+- **Minimalism:** Clean layouts, generous spacing, and focus on content.
+- **Glassmorphism:** All main sections and cards use blurred, semi-transparent backgrounds with soft borders and glows, inspired by macOS Big Sur/Monterey.
+- **Colorful Accents:** Section dividers and nav bar feature subtle gradients and glows for a modern, premium feel.
+- **Professional Typography:** Uses Montserrat for headings and Inter for body text, with a clear hierarchy and optimal line spacing.
+- **Recruiter-Friendly:** Experience and project sections are card-based, with bold headings, clear dates, and concise bullet points for easy review.
 
-## 🛠️ Tech Stack
-- HTML5, CSS3 (custom, no frameworks)
-- JavaScript (for UI, animation, and dark mode)
-- Font Awesome for icons
-- Google Fonts (Montserrat, Inter)
+## 🚀 Getting Started
+1. Clone or fork this repository.
+2. Open `index.html` in your browser, or deploy via GitHub Pages.
+3. All styles are in `style.css`, and animations/interactivity in `script.js`.
+
+## 📋 Sections
+- **Hero:** Name, tagline, and resume download.
+- **About:** Brief bio and key skills/interests.
+- **Experience:** Card-based timeline of professional roles.
+- **Projects:** Highlighted technical and design projects.
+- **Contact:** Modern glassy card with links to email, GitHub, and LinkedIn.
+
+## 🌙 Dark Mode
+Toggle in the menu bar. All glass and color effects adapt for readability and style in both modes.
 
 ---
 
-> This portfolio is continuously updated with new features, UI improvements, and additional sections (such as Certifications). Stay tuned!
+> Designed and built with passion, inspired by Apple’s design language, and optimized for recruiters and collaborators.
 
