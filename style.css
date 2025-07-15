@@ -4,8 +4,12 @@
 
 /* Color and Font Variables */
 :root {
-  --primary-color: #0066cc;
+  --primary-color: #2d88ff;
   --secondary-color: #5856d6;
+  --accent-1: #2cd7e9;
+  --accent-2: #32ade6;
+  --accent-3: #2d88ff;
+  --accent-4: #5856d6;
   --text-primary: #2c3e50;
   --text-secondary: #666666;
   --bg-primary: #ffffff;
@@ -13,18 +17,24 @@
   --spacing-unit: 1rem;
   --border-radius: 8px;
   --transition: all 0.3s ease;
-  --primary-rgb: 0, 102, 204;
+  --primary-rgb: 45, 136, 255;
   --secondary-rgb: 88, 86, 214;
+  --siri-glow: 0 0 20px rgba(45, 136, 255, 0.3);
 }
 
 /* Dark Mode Colors */
 [data-theme="dark"] {
-  --primary-color: #66b3ff;
-  --secondary-color: #7a79e0;
+  --primary-color: #2d88ff;
+  --secondary-color: #5856d6;
+  --accent-1: #2cd7e9;
+  --accent-2: #32ade6;
+  --accent-3: #2d88ff;
+  --accent-4: #5856d6;
   --text-primary: #ffffff;
   --text-secondary: #b3b3b3;
   --bg-primary: #1a1a1a;
   --bg-secondary: #2d2d2d;
+  --siri-glow: 0 0 30px rgba(45, 136, 255, 0.4);
 }
 
 /* Reset and Base Styles */
@@ -128,21 +138,19 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
-/* Modern Navigation Menu */
+/* Modern Siri-inspired Navigation Menu */
 .site-nav {
   position: relative;
   display: flex;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 50px;
   padding: 0.5rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] .site-nav {
-  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 4px 30px rgba(var(--primary-rgb), 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .nav-link {
@@ -152,34 +160,45 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 25px;
   font-weight: 500;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-link::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 25px;
   background: linear-gradient(
     45deg,
-    var(--primary-color),
-    var(--secondary-color)
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-3),
+    var(--accent-4)
   );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
 }
 
-.nav-link span {
-  position: relative;
-  z-index: 1;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-3),
+    var(--accent-4)
+  );
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-link:hover {
-  color: white;
-}
-
-.nav-link:hover::before {
-  opacity: 1;
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 /* Enhanced Dark Mode Toggle */
@@ -261,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--spacing-unit);
 }
 
-/* Buttons */
+/* Siri-inspired Buttons */
 .primary-btn, .secondary-btn {
   display: inline-flex;
   align-items: center;
@@ -270,22 +289,51 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--border-radius);
   font-weight: 600;
   text-decoration: none;
-  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .primary-btn {
-  background-color: var(--primary-color);
+  background: linear-gradient(
+    135deg,
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-3),
+    var(--accent-4)
+  );
   color: white;
 }
 
 .secondary-btn {
-  background-color: var(--bg-secondary);
+  background: rgba(var(--primary-rgb), 0.1);
   color: var(--text-primary);
+}
+
+.primary-btn::before, .secondary-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .primary-btn:hover, .secondary-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+  box-shadow: var(--siri-glow);
+}
+
+.primary-btn:hover::before, .secondary-btn:hover::before {
+  opacity: 1;
 }
 
 /* Experience and Projects */
@@ -578,6 +626,80 @@ h1, h2, h3, h4, h5, h6 {
 
 .info-item:hover .connection-line {
   transform: scaleX(1);
+}
+
+/* Enhanced Siri-like Element Styles */
+.tech-item, .info-item, .exp-item, .project-item, .contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--siri-glow);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-item::before, .info-item::before, .exp-item::before, .project-item::before, .contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(var(--primary-rgb), 0.2),
+    rgba(var(--secondary-rgb), 0.2)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.tech-item:hover, .info-item:hover, .exp-item:hover, .project-item:hover, .contact-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 10px 40px rgba(var(--primary-rgb), 0.2),
+    0 0 20px rgba(var(--secondary-rgb), 0.1);
+}
+
+.tech-item:hover::before, .info-item:hover::before, .exp-item:hover::before, 
+.project-item:hover::before, .contact-card:hover::before {
+  opacity: 1;
+}
+
+/* Siri Wave Animation */
+@keyframes siriWave {
+  0% {
+    transform: translateX(-100%) scaleY(1);
+  }
+  50% {
+    transform: translateX(0%) scaleY(1.2);
+  }
+  100% {
+    transform: translateX(100%) scaleY(1);
+  }
+}
+
+.tech-item::after, .info-item::after, .exp-item::after, .project-item::after, .contact-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-3),
+    var(--accent-4)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tech-item:hover::after, .info-item:hover::after, .exp-item:hover::after,
+.project-item:hover::after, .contact-card:hover::after {
+  opacity: 1;
+  animation: siriWave 2s ease-in-out infinite;
 }
 
 /* Animate info items on scroll */
