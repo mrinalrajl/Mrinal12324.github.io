@@ -685,69 +685,120 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* Siri Wave Animation for Tech and About sections only */
-@keyframes siriWave {
+/* Initial Siri Flow Effect */
+@keyframes initialSiriFlow {
   0% {
-    transform: translateX(-100%) scaleY(1);
+    transform: translate3d(-100%, 0, 0) scaleY(1);
     background-position: 0% 50%;
   }
   50% {
-    transform: translateX(0%) scaleY(1.2);
+    transform: translate3d(0%, 0, 0) scaleY(1.2);
     background-position: 100% 50%;
   }
   100% {
-    transform: translateX(100%) scaleY(1);
+    transform: translate3d(100%, 0, 0) scaleY(1);
     background-position: 0% 50%;
   }
 }
 
-.tech-item::after,
-.info-item::after {
+@keyframes initialGlow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.section::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   height: 2px;
   background: var(--siri-gradient);
   background-size: 200% 100%;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  z-index: 10;
+  animation: initialSiriFlow 2s ease-in-out forwards;
+  animation-play-state: paused;
 }
 
-.tech-item:hover::after,
-.info-item:hover::after {
-  opacity: 1;
-  animation: siriWave 2s ease-in-out infinite;
-}
-
-/* Hover effects for tech and about sections */
-.tech-item:hover,
-.info-item:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 
-    0 10px 40px rgba(175, 82, 222, 0.2),
-    0 0 20px rgba(255, 45, 85, 0.1);
-}
-
-/* Minimal hover effects for other sections */
-.exp-item:hover,
-.project-item:hover,
-.contact-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--minimal-shadow);
-}
-
-/* Animate info items on scroll */
-.info-item {
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 45, 85, 0.1),
+    rgba(175, 82, 222, 0.1),
+    rgba(88, 86, 214, 0.1),
+    rgba(0, 122, 255, 0.1)
+  );
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s ease-out forwards;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.info-item:nth-child(1) { animation-delay: 0.2s; }
-.info-item:nth-child(2) { animation-delay: 0.4s; }
-.info-item:nth-child(3) { animation-delay: 0.6s; }
+/* Initial load animations */
+.initial-load .section {
+  animation: none;
+}
+
+.initial-load .section::before {
+  animation-play-state: running;
+}
+
+.initial-load .section::after {
+  animation: initialGlow 2s ease-in-out forwards;
+}
+
+.initial-load .section:nth-child(1)::before { animation-delay: 0s; }
+.initial-load .section:nth-child(2)::before { animation-delay: 0.4s; }
+.initial-load .section:nth-child(3)::before { animation-delay: 0.8s; }
+.initial-load .section:nth-child(4)::before { animation-delay: 1.2s; }
+.initial-load .section:nth-child(5)::before { animation-delay: 1.6s; }
+
+.initial-load .section:nth-child(1)::after { animation-delay: 0s; }
+.initial-load .section:nth-child(2)::after { animation-delay: 0.4s; }
+.initial-load .section:nth-child(3)::after { animation-delay: 0.8s; }
+.initial-load .section:nth-child(4)::after { animation-delay: 1.2s; }
+.initial-load .section:nth-child(5)::after { animation-delay: 1.6s; }
+
+/* Adjust section position for the flow effect */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gallery Loading Animation */
+.gallery-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger gallery items animation */
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
 
 @media (max-width: 768px) {
   .tech-flow {
@@ -847,28 +898,3 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
   }
 }
-
-/* Gallery Loading Animation */
-.gallery-item {
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Stagger gallery items animation */
-.gallery-item:nth-child(1) { animation-delay: 0.1s; }
-.gallery-item:nth-child(2) { animation-delay: 0.2s; }
-.gallery-item:nth-child(3) { animation-delay: 0.3s; }
-.gallery-item:nth-child(4) { animation-delay: 0.4s; }
-.gallery-item:nth-child(5) { animation-delay: 0.5s; }
-.gallery-item:nth-child(6) { animation-delay: 0.6s; }
