@@ -1,234 +1,193 @@
-// Animate section fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      // Animate child items with stagger
-      if (entry.target.classList.contains('experience-section') || entry.target.classList.contains('projects-section')) {
-        const items = entry.target.querySelectorAll('.exp-item, .project-item');
-        items.forEach((item, idx) => {
-          setTimeout(() => item.classList.add('in-view'), idx * 120);
-        });
-      }
-    }
-  });
-}, { threshold: 0.15 });
+// Dark mode functionality
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Add smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', () => {
-  // Observe sections for animation
-  document.querySelectorAll('.hero-section, .about-section, .experience-section, .projects-section, .contact-section').forEach(section => {
-    observer.observe(section);
-  });
-
-  // Add click event listener to each navigation link
-  document.querySelectorAll('.site-nav a').forEach(link => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default link behavior
-      const targetId = link.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        // Scroll to the target element smoothly
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+// Tech Flow Animations
+function initTechFlow() {
+    const techItems = document.querySelectorAll('.tech-item');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Animate connection lines after item appears
+                const connectionLine = entry.target.querySelector('.connection-line');
+                if (connectionLine) {
+                    setTimeout(() => {
+                        connectionLine.style.transform = 'scaleX(1)';
+                    }, 300);
+                }
+            }
         });
-      }
+    }, {
+        threshold: 0.2
     });
-  });
 
-  // Minimal bouncing ball background effect
-  const bg = document.querySelector('.bouncing-ball-bg');
-  if (bg && !bg.querySelector('.ball')) {
-    const ball = document.createElement('div');
-    ball.className = 'ball';
-    bg.appendChild(ball);
-  }
+    techItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        observer.observe(item);
+    });
+}
 
-  // Animate hero on load
-  document.querySelector('.apple-hero')?.classList.add('in-view');
+// Initialize dark mode
+function initDarkMode() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        document.body.setAttribute('data-theme', 'dark');
+        darkModeToggle.querySelector('.toggle-icon').textContent = '☀️';
+    }
+}
 
-  // Apple Logo Easter Egg
-  // Create the Apple logo element
-  const appleEasterEgg = document.createElement('div');
-  appleEasterEgg.className = 'apple-easter-egg';
-  appleEasterEgg.innerHTML = `
-    <svg viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.2-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.93 0.21-9.84-1.96-14.75-6.52-3.13-2.73-7.05-7.41-11.73-14.04-5.03-7.08-9.17-15.29-12.41-24.65-3.47-10.11-5.21-19.9-5.21-29.38 0-10.86 2.35-20.22 7.04-28.07 3.69-6.29 8.6-11.26 14.75-14.92 6.14-3.66 12.79-5.53 19.94-5.74 3.91 0 9.05 1.21 15.43 3.59 6.36 2.39 10.45 3.6 12.24 3.6 1.34 0 5.88-1.42 13.57-4.24 7.28-2.62 13.41-3.7 18.44-3.28 13.63 1.1 23.87 6.47 30.68 16.14-12.19 7.39-18.22 17.73-18.1 31 0.11 10.34 3.86 18.94 11.23 25.77 3.34 3.17 7.07 5.62 11.22 7.36-0.9 2.61-1.85 5.11-2.86 7.51zM119.11 7.24c0 8.1-2.96 15.67-8.86 22.67-7.12 8.32-15.73 13.13-25.14 12.38-0.12-0.97-0.19-1.99-0.19-3.07 0-7.78 3.39-16.1 9.4-22.91 3-3.45 6.82-6.31 11.45-8.6 4.62-2.25 8.99-3.5 13.13-3.71 0.12 1.08 0.18 2.17 0.18 3.24z"/>
-    </svg>
-  `;
-  document.body.appendChild(appleEasterEgg);
-
-  // Position the Apple logo randomly
-  function positionAppleLogo() {
-    const x = Math.floor(Math.random() * (window.innerWidth - 100));
-    const y = Math.floor(Math.random() * (window.innerHeight - 100));
-    appleEasterEgg.style.left = x + 'px';
-    appleEasterEgg.style.top = y + 'px';
-  }
-
-  // Secret key combination to show the Apple logo (press 'a' + 'p' + 'p' + 'l' + 'e')
-  let keySequence = '';
-  const secretCode = 'apple';
-  
-  document.addEventListener('keydown', (e) => {
-    keySequence += e.key.toLowerCase();
+// Enhanced Dark Mode Toggle
+function toggleDarkMode() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
     
-    // Keep only the last 5 characters
-    if (keySequence.length > 5) {
-      keySequence = keySequence.slice(-5);
+    // Prepare for transition
+    document.body.style.transition = 'background-color 0.3s ease-in-out, color 0.3s ease-in-out';
+    document.querySelectorAll('.tech-icon img').forEach(img => {
+        img.style.transition = 'filter 0.3s ease-in-out';
+    });
+    
+    // Toggle theme
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        darkModeToggle.querySelector('.toggle-icon').textContent = '🌙';
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        darkModeToggle.querySelector('.toggle-icon').textContent = '☀️';
     }
     
-    // Check if the sequence matches the secret code
-    if (keySequence === secretCode) {
-      positionAppleLogo();
-      appleEasterEgg.classList.add('visible');
-      
-      // Hide after 10 seconds
-      setTimeout(() => {
-        appleEasterEgg.classList.remove('visible');
-      }, 10000);
-      
-      // Reset the sequence
-      keySequence = '';
-    }
-  });
+    // Animate tech icons
+    document.querySelectorAll('.tech-icon').forEach((icon, index) => {
+        setTimeout(() => {
+            icon.style.transform = 'scale(1.1) rotate(10deg)';
+            setTimeout(() => {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+        }, index * 50);
+    });
+}
 
-  // Alternative trigger: Double-click in a corner
-  const cornerSize = 50;
-  document.addEventListener('dblclick', (e) => {
-    // Check if click is in any corner
-    const isTopLeft = e.clientX < cornerSize && e.clientY < cornerSize;
-    const isTopRight = e.clientX > window.innerWidth - cornerSize && e.clientY < cornerSize;
-    const isBottomLeft = e.clientX < cornerSize && e.clientY > window.innerHeight - cornerSize;
-    const isBottomRight = e.clientX > window.innerWidth - cornerSize && e.clientY > window.innerHeight - cornerSize;
-    
-    if (isTopLeft || isTopRight || isBottomLeft || isBottomRight) {
-      positionAppleLogo();
-      appleEasterEgg.classList.add('visible');
-      
-      // Hide after 10 seconds
-      setTimeout(() => {
-        appleEasterEgg.classList.remove('visible');
-      }, 10000);
-    }
-  });
+// Smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
-// Scroll animation function
-function animateAppleSections() {
-  const sections = document.querySelectorAll('.apple-section');
-  const cards = document.querySelectorAll('.exp-item, .project-item');
-  const trigger = window.innerHeight * 0.92;
-  
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < trigger) section.classList.add('in-view');
-  });
-  
-  // Staggered animation for cards
-  let delay = 0;
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < trigger) {
-      setTimeout(() => card.classList.add('in-view'), delay);
-      delay += 120;
-    }
-  });
+// Add iOS 18-style interactive effects
+function initHeadshotEffects() {
+    const headshot = document.querySelector('.headshot-container');
+    if (!headshot) return;
+
+    // Track mouse movement for the glass effect
+    headshot.addEventListener('mousemove', (e) => {
+        const rect = headshot.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        headshot.style.setProperty('--mouse-x', `${x}%`);
+        headshot.style.setProperty('--mouse-y', `${y}%`);
+
+        // Calculate the angle for 3D rotation
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (e.clientY - rect.top - centerY) / 20;
+        const rotateY = -(e.clientX - rect.left - centerX) / 20;
+
+        headshot.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
+    });
+
+    // Reset transform on mouse leave
+    headshot.addEventListener('mouseleave', () => {
+        headshot.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
 }
 
-window.addEventListener('scroll', animateAppleSections);
-window.addEventListener('DOMContentLoaded', animateAppleSections);
+// Active nav link indicator
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-// --- Dots and Lines UI: OS Icon Dots ---
-const osIcons = [
-  'fa-windows',
-  'fa-apple',
-  'fa-linux',
-  'fa-android',
-  'fa-chrome',
-  'fa-firefox',
-  'fa-ubuntu',
-  'fa-redhat',
-  'fa-freebsd',
-  'fa-raspberry-pi',
-  'fa-centos',
-  'fa-fedora',
-  'fa-android',
-  'fa-apple',
-  'fa-windows',
-];
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
 
-function getRandomOSIcons(count) {
-  const icons = [...osIcons];
-  const result = [];
-  for (let i = 0; i < count; i++) {
-    if (icons.length === 0) break;
-    const idx = Math.floor(Math.random() * icons.length);
-    result.push(icons.splice(idx, 1)[0]);
-  }
-  return result;
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
 }
 
-function updateSectionSeparators() {
-  const separators = document.querySelectorAll('.section-separator');
-  separators.forEach(sep => {
-    sep.innerHTML = '';
-    const line1 = document.createElement('div');
-    line1.className = 'line';
-    sep.appendChild(line1);
-    const dot = document.createElement('span');
-    dot.className = 'dot os-dot';
-    const icon = document.createElement('i');
-    const iconClass = getRandomOSIcons(1)[0];
-    icon.className = `fab ${iconClass}`;
-    dot.appendChild(icon);
-    sep.appendChild(dot);
-    const line2 = document.createElement('div');
-    line2.className = 'line';
-    sep.appendChild(line2);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', updateSectionSeparators);
-
-// Apple macOS-style: Remove old nav/hero classes if present
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  const oldClasses = ['nav-dark', 'nav-transparent', 'hero-light', 'hero-dark'];
-  const root = document.documentElement;
-
-  // Remove old classes from body
-  oldClasses.forEach(cls => {
-    document.body.classList.remove(cls);
-  });
-
-  // Add macOS glassmorphic nav and hero classes
-  document.body.classList.add('nav-macos', 'hero-macos');
+    initDarkMode();
+    initTechFlow();
+    initHeadshotEffects();
+    updateActiveNavLink();
+    
+    // Add hover effects for connection lines
+    document.querySelectorAll('.tech-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const column = item.closest('.flow-column');
+            if (column) {
+                const columnItems = column.querySelectorAll('.tech-item');
+                columnItems.forEach(colItem => {
+                    if (colItem !== item) {
+                        colItem.style.opacity = '0.7';
+                    }
+                });
+            }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            const column = item.closest('.flow-column');
+            if (column) {
+                const columnItems = column.querySelectorAll('.tech-item');
+                columnItems.forEach(colItem => {
+                    colItem.style.opacity = '1';
+                });
+            }
+        });
+    });
 });
 
-// --- Apple macOS Section Card Animation & Section Titles ---
-function macosSectionTitles() {
-  document.querySelectorAll('.section-title h2').forEach(h2 => {
-    h2.classList.add('macos-section-title');
-  });
-}
-document.addEventListener('DOMContentLoaded', macosSectionTitles);
+// Event listeners
+darkModeToggle.addEventListener('click', toggleDarkMode);
 
-// --- Dark Mode Toggle ---
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.querySelector('.dark-mode-toggle');
-  const icon = toggleBtn?.querySelector('.toggle-icon');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const saved = localStorage.getItem('darkMode');
-  function setDarkMode(on) {
-    document.body.classList.toggle('dark-mode', on);
-    if (icon) icon.textContent = on ? '☀️' : '🌙';
-    localStorage.setItem('darkMode', on ? '1' : '0');
-  }
-  // Initial mode
-  setDarkMode(saved === '1' || (saved === null && prefersDark));
-  toggleBtn?.addEventListener('click', () => {
-    setDarkMode(!document.body.classList.contains('dark-mode'));
-  });
+// Handle system dark mode changes
+prefersDarkScheme.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            darkModeToggle.querySelector('.toggle-icon').textContent = '☀️';
+        } else {
+            document.body.removeAttribute('data-theme');
+            darkModeToggle.querySelector('.toggle-icon').textContent = '🌙';
+        }
+    }
 });

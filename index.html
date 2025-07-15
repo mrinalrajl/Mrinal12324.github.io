@@ -3,56 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinal Raj Lakkimsetty</title>
+  <meta name="description" content="Professional Portfolio of Mrinal Raj Lakkimsetty - iOS Developer & UI/UX Designer">
+  <meta name="keywords" content="iOS Developer, UI/UX Designer, Data Science, Machine Learning, Portfolio">
+  <meta name="author" content="Mrinal Raj Lakkimsetty">
+  <title>Mrinal Raj Lakkimsetty | iOS Developer & UI/UX Designer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/jpeg" href="images/ethereum-svgrepo-com.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="images/ethereum-svgrepo-com.svg">
 </head>
 <body>
-  <div class="bouncing-ball-bg" aria-hidden="true"></div>
-  <header class="site-header cloud-navbar" role="banner">
-    <a href="#hero" class="site-logo" aria-label="Go to hero section">
-      <span class="logo-text">Mrinal Raj</span>
-    </a>
-    <nav class="site-nav" role="navigation" aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <span class="toggle-icon" aria-hidden="true">🌙</span>
-    </button>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-spinner"></div>
+  </div>
+  
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="#hero" class="site-logo" aria-label="Go to hero section">
+        <span class="logo-text">Mrinal Raj</span>
+      </a>
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="#about" class="nav-link"><span>About</span></a>
+        <a href="#gallery" class="nav-link"><span>Gallery</span></a>
+        <a href="#experience" class="nav-link"><span>Experience</span></a>
+        <a href="#projects" class="nav-link"><span>Projects</span></a>
+        <a href="#contact" class="nav-link"><span>Contact</span></a>
+      </nav>
+      <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="toggle-icon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
   </header>
+
   <main id="main-content" tabindex="-1">
-    <section id="hero" class="hero-section apple-hero macos-hero">
-      <div class="macos-hero-bg"></div>
-      <div class="container hero-grid">
-        <div class="hero-image">
-          <img src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj Lakkimsetty portrait" />
-        </div>
-        <div class="hero-text">
-          <h1 class="macos-headline">Welcome to Mrinal’s Portfolio</h1>
-          <h2 class="macos-subheadline">Inspired by Liquid Glass</h2>
-          <p class="macos-lead">iOS Developer &amp; UI/UX Designer<br>Building beautiful, intuitive, and intelligent experiences for everyone.</p>
-          <a href="resume/Mrinal_Resume.pdf" class="macos-btn" target="_blank">Download Resume</a>
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-image">
+            <div class="headshot-container">
+              <img src="images/DSC_2645.JPEG.jpg" 
+                   alt="Mrinal Raj Lakkimsetty - Professional Portrait" 
+                   width="400" height="400" 
+                   loading="lazy"
+                   class="headshot-image" />
+              <div class="headshot-overlay"></div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <h1 class="headline">Mrinal Raj Lakkimsetty</h1>
+            <h2 class="subheadline">iOS Developer & UI/UX Designer</h2>
+            <p class="lead">Crafting intuitive digital experiences with expertise in iOS development, 
+            data science, and modern UI/UX design principles.</p>
+            <div class="cta-group">
+              <a href="resume/Mrinal_Resume.pdf" class="primary-btn" target="_blank" rel="noopener">
+                <i class="fas fa-file-pdf"></i> Download Resume
+              </a>
+              <a href="#contact" class="secondary-btn">
+                <i class="fas fa-envelope"></i> Get in Touch
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <div class="section-separator"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
-    <section id="about" class="about-section apple-section">
-      <div class="container section-grid">
-        <div class="section-title"><h2>About</h2></div>
-        <div class="section-content">
-          <p class="apple-lead">Driven by curiosity, fueled by innovation—combining technical expertise with creative problem-solving to deliver impactful solutions and continuous growth.</p>
-          <ul class="about-list">
-            <li><strong>Location:</strong> Hyderabad, India</li>
-            <li><strong>Expertise:</strong> iOS, UI/UX, Data Science, Web3, ML</li>
-            <li><strong>Interests:</strong> Product Design, AI, Minimalism, Apple Ecosystem</li>
-          </ul>
+
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-header">
+            <h2>Technology Stack</h2>
+            <p class="lead">An interconnected ecosystem of technologies I work with</p>
+          </div>
+          <div class="section-content">
+            <div class="tech-flow">
+              <div class="flow-column">
+                <div class="tech-item" data-category="cloud">
+                  <div class="tech-icon">
+                    <img src="images/aws-lambda-svgrepo-com.svg" alt="AWS Lambda Icon" loading="lazy" />
+                  </div>
+                  <h3>Cloud Architecture</h3>
+                  <p>Serverless Solutions</p>
+                  <div class="connection-line"></div>
+                </div>
+                <div class="tech-item" data-category="mobile">
+                  <div class="tech-icon">
+                    <img src="images/flutter-svgrepo-com.svg" alt="Flutter Development Icon" loading="lazy" />
+                  </div>
+                  <h3>Mobile Development</h3>
+                  <p>Cross-platform Apps</p>
+                  <div class="connection-line"></div>
+                </div>
+              </div>
+              
+              <div class="flow-column">
+                <div class="tech-item" data-category="ml">
+                  <div class="tech-icon">
+                    <img src="images/deep-learning-svgrepo-com.svg" alt="Deep Learning Icon" loading="lazy" />
+                  </div>
+                  <h3>AI & ML</h3>
+                  <p>Neural Networks</p>
+                  <div class="connection-line"></div>
+                </div>
+                <div class="tech-item" data-category="blockchain">
+                  <div class="tech-icon">
+                    <img src="images/ethereum-svgrepo-com.svg" alt="Ethereum Icon" loading="lazy" />
+                  </div>
+                  <h3>Blockchain</h3>
+                  <p>Web3 Solutions</p>
+                  <div class="connection-line"></div>
+                </div>
+              </div>
+              
+              <div class="flow-column">
+                <div class="tech-item" data-category="frameworks">
+                  <div class="tech-icon">
+                    <img src="images/pytorch-svgrepo-com.svg" alt="PyTorch Icon" loading="lazy" />
+                  </div>
+                  <h3>ML Frameworks</h3>
+                  <p>PyTorch Expert</p>
+                  <div class="connection-line"></div>
+                </div>
+                <div class="tech-item" data-category="tools">
+                  <div class="tech-icon">
+                    <img src="images/tensorflow-svgrepo-com.svg" alt="TensorFlow Icon" loading="lazy" />
+                  </div>
+                  <h3>Deep Learning</h3>
+                  <p>TensorFlow Master</p>
+                  <div class="connection-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-header">
+            <h2>About Me</h2>
+          </div>
+          <div class="section-content">
+            <p class="lead">Driven by curiosity and fueled by innovation, I combine technical expertise 
+            with creative problem-solving to deliver impactful solutions.</p>
+            <div class="info-grid">
+              <div class="info-item">
+                <h3>Location</h3>
+                <p>Hyderabad, India</p>
+              </div>
+              <div class="info-item">
+                <h3>Core Expertise</h3>
+                <ul class="expertise-list">
+                  <li>iOS Development</li>
+                  <li>UI/UX Design</li>
+                  <li>Data Science</li>
+                  <li>Machine Learning</li>
+                </ul>
+              </div>
+              <div class="info-item">
+                <h3>Industry Focus</h3>
+                <p>Mobile Apps, AI/ML, Product Design</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -125,23 +241,43 @@
       </div>
     </section>
     <div class="section-separator"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
-    <section id="contact" class="contact-section apple-section">
-      <div class="container section-grid">
-        <div class="section-title"><h2>Contact</h2></div>
-        <div class="section-content contact-list">
-          <p class="apple-lead">Let's connect! Reach out for collaboration, opportunities, or just to say hi.</p>
-          <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
-          <a href="https://github.com/mrinalrajl" class="contact-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-header">
+            <h2>Let's Connect</h2>
+          </div>
+          <div class="section-content">
+            <p class="lead">Open to new opportunities and collaborations. Feel free to reach out!</p>
+            <div class="contact-grid">
+              <a href="mailto:mrinalrajnaidu@gmail.com" class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>mrinalrajnaidu@gmail.com</p>
+              </a>
+              <a href="https://github.com/mrinalrajl" class="contact-card" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <p>@mrinalrajl</p>
+              </a>
+              <a href="https://www.linkedin.com/in/L-Mrinal-Raj" class="contact-card" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <p>Connect with me</p>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>&copy; 2025 Mrinal Raj Lakkimsetty</p>
+      <p>&copy; 2025 Mrinal Raj Lakkimsetty. All rights reserved.</p>
     </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
