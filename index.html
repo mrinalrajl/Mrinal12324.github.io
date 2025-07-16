@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Professional Portfolio of Mrinal Raj Lakkimsetty - iOS Developer & UI/UX Designer">
   <meta name="keywords" content="iOS Developer, UI/UX Designer, Data Science, Machine Learning, Portfolio">
   <meta name="author" content="Mrinal Raj Lakkimsetty">
+  <meta name="theme-color" content="#2d88ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Mrinal Raj Lakkimsetty | iOS Developer & UI/UX Designer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -25,6 +28,9 @@
       <a href="#hero" class="site-logo" aria-label="Go to hero section">
         <span class="logo-text">Mrinal Raj</span>
       </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="nav-icon"></span>
+      </button>
       <nav class="site-nav" role="navigation" aria-label="Main navigation">
         <a href="#about" class="nav-link"><span>About</span></a>
         <a href="#gallery" class="nav-link"><span>Gallery</span></a>
@@ -294,5 +300,38 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile menu functionality
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navToggle?.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      siteNav.style.display = isExpanded ? 'none' : 'flex';
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          navToggle.setAttribute('aria-expanded', 'false');
+          siteNav.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        siteNav.style.display = 'flex';
+        document.body.style.overflow = '';
+      } else {
+        siteNav.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
