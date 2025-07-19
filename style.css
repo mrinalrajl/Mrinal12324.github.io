@@ -15,6 +15,7 @@
   --accent-3: #5856D6;
   --accent-4: #007AFF;
   --accent-5: #ec8947;
+  --accent-6: #666666;
   --siri-gradient: linear-gradient(
     135deg,
     #FF2D55 0%,
@@ -459,11 +460,9 @@ h6 {
 
 .primary-btn {
   background: linear-gradient(
-    135deg,
-    var(--accent-1),
-    var(--accent-2),
-    var(--accent-3),
-    var(--accent-4)
+    155deg,
+    var(--accent-4),
+    var(--accent-1)
   );
   color: rgba(255, 255, 255, 0.877);
 }
@@ -725,7 +724,7 @@ h6 {
 }
 
 .info-item p {
-  font-family: 'Dancing Script', cursive;
+  font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: calc(var(--font-md) * 1.4);
   line-height: 1.5;
   color: var(--text-secondary);
@@ -806,7 +805,7 @@ h6 {
 .hero-section .subheadline {
   font-size: var(--font-xl);
   font-weight: var(--fw-black);
-  background: var(--accent-5);
+  background: var(--accent-6);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
