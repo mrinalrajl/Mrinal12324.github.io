@@ -819,8 +819,8 @@ h6 {
 }
 
 .hero-section .lead {
-  font-family: '';
-  font-size: calc(var(--font-lg) * 1.4);
+  font-family: var(--font-lg);
+  font-size: calc(var(--font-lg)* 1.2);
   font-weight: 500;
   line-height: 1.6;
   color: var(--text-secondary);
