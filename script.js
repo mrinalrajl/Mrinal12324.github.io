@@ -31,6 +31,35 @@ function initTechFlow() {
     });
 }
 
+// Staggered reveal for Experience section using IntersectionObserver (DSA-like scheduling)
+function initExperienceReveal() {
+    const expItems = Array.from(document.querySelectorAll('.experience-section .exp-item'));
+    if (!expItems.length) return;
+
+    // Use a priority queue-like stagger: earlier items reveal slightly before later ones
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = expItems.indexOf(entry.target);
+                const delay = Math.min(idx * 120, 600); // stagger delay based on index
+                setTimeout(() => {
+                    entry.target.classList.add('in-view');
+                }, delay);
+
+                // once viewed, unobserve to save cycles (like marking nodes visited)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.18 });
+
+    // prepare items
+    expItems.forEach(item => {
+        // ensure keyboard focus also triggers the reveal
+        item.addEventListener('focus', () => item.classList.add('in-view'));
+        observer.observe(item);
+    });
+}
+
 // Initialize dark mode
 function initDarkMode() {
     const savedTheme = localStorage.getItem('theme');
@@ -148,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
     initTechFlow();
     initHeadshotEffects();
+    initExperienceReveal();
     updateActiveNavLink();
     
     // Add hover effects for connection lines
