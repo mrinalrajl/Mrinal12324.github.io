@@ -77,15 +77,15 @@
 /* Color and Font Variables */
 :root {
   /* Siri-inspired palette */
-  --primary-color: #007AFF; /* Siri blue */
-  --secondary-color: #5856D6; /* iOS purple */
+  --primary-color: #007bff73; /* Siri blue */
+  --secondary-color: #6f6df8; /* iOS purple */
   --accent-1: #FF2D55; /* coral */
   --accent-2: #34ffab; /* gold */
-  --accent-3: #64A3FF; /* light sky */
-  --accent-4: #5E35B1; /* violet */
-  --accent-5: #f04040;
+  --accent-3: #64e8ff; /* light sky */
+  --accent-4: #3c3fd8; /* violet */
+  --accent-5: #ff4848;
   --accent-6: #666666;
-  --siri-gradient: linear-gradient(135deg, rgba(0,122,255,0.95) 0%, rgba(88,86,214,0.95) 45%, rgba(255,45,85,0.95) 85%);
+  --siri-gradient: linear-gradient(75deg, rgb(24, 116, 255) 0%, rgba(78, 240, 172, 0.95) 45%, rgba(238, 37, 74, 0.95) 85%);
   --text-primary: #0b1220;
   --text-secondary: #556070;
   --bg-primary: #0b1220;
@@ -240,18 +240,115 @@ h3 { font-size: clamp(1.5rem,3vw,2rem); font-weight:700; }
   50% { box-shadow:0 10px 45px rgba(0,0,0,0.35),0 0 35px rgba(255,45,85,0.35); }
 }
 
+
+.primary-btn,
+.secondary-btn,
+.resume-button {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: #fff;
+  border-radius: 14px;
+  padding: 0.85rem 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle liquid shine overlay */
+.primary-btn::before,
+.secondary-btn::before,
+.resume-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.05) 40%,
+    rgba(255,255,255,0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.resume-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(110, 104, 104, 0.493), 0 0 28px rgba(0,175,255,0.35);
+}
+
+.primary-btn:hover::before,
+.secondary-btn:hover::before,
+.resume-button:hover::before {
+  opacity: 1;
+}
+
 /* -----------------------------
    Contact Cards
 ------------------------------*/
 .contact-card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(15px);
-  border-radius: var(--border-radius);
-  padding:1.8rem;
-  text-align:center;
-  transition: var(--transition);
+  background: rgba(255, 255, 255, 0.363);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
-.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+/* liquid shine */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: -70%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.12);
+  transform: rotate(25deg) translateX(-150%);
+  transition: transform 0.9s ease;
+}
+
+.contact-card:hover::before {
+  transform: rotate(55deg) translateX(150%);
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 2px 44px rgba(0, 0, 0, 0.342),
+              0 0 80px rgba(0, 123, 255, 0.616);
+}
+
+/* -------------------------------
+   Dark Mode Glass Adjustments
+--------------------------------*/
+[data-theme="dark"] .primary-btn,
+[data-theme="dark"] .secondary-btn,
+[data-theme="dark"] .resume-button,
+[data-theme="dark"] .contact-card {
+  background: rgba(24, 24, 24, 0.55);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+[data-theme="dark"] .primary-btn:hover,
+[data-theme="dark"] .secondary-btn:hover,
+[data-theme="dark"] .resume-button:hover,
+[data-theme="dark"] .contact-card:hover {
+  box-shadow: 0 22px 44px rgba(0,0,0,0.5), 0 0 30px rgba(88,86,214,0.35);
+}
 
 /* -----------------------------
    Footer
@@ -417,6 +514,23 @@ h3 { font-size: clamp(1.5rem,3vw,2rem); font-weight:700; }
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.section-Tech{
+  border-radius: 50px;
+
+  /* 🧊 iOS Nav Frost Glass */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 50%
+    rgba(255, 255, 255, 0.25) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.151);
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
@@ -1511,7 +1625,7 @@ h3 { font-size: clamp(1.5rem,3vw,2rem); font-weight:700; }
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  background: linear-gradient(18deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
   padding: 0.35rem 0.5rem;
   border-radius: 40px;
   align-items: center;
