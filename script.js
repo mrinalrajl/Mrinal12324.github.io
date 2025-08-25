@@ -101,6 +101,19 @@ function toggleDarkMode() {
     });
 }
 
+// retrigger header sheen animation (used when toggling theme)
+function retriggerHeaderSheen() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const before = window.getComputedStyle(header, '::before');
+    // restart animation by forcing reflow and toggling a class
+    header.classList.remove('sheen-active');
+    // force reflow
+    void header.offsetWidth;
+    header.classList.add('sheen-active');
+    setTimeout(() => header.classList.remove('sheen-active'), 1400);
+}
+
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -148,6 +161,75 @@ function initHeadshotEffects() {
     });
 }
 
+// Smooth parallax and subtle 3D tilt for hero and tech icons
+function initParallaxAndTilt() {
+    const hero = document.querySelector('#hero');
+    const techIcons = document.querySelectorAll('.tech-icon');
+
+    // Hero parallax on scroll
+    if (hero) {
+        window.addEventListener('scroll', () => {
+            const rect = hero.getBoundingClientRect();
+            const offset = Math.max(-rect.top, 0);
+            const depth = Math.min(offset / 20, 40);
+            hero.style.transform = `translateZ(0) translateY(${depth * -0.85}px)`;
+        }, { passive: true });
+    }
+
+    // Efficient mouse-driven tilt for tech icons
+    techIcons.forEach(iconWrap => {
+        const icon = iconWrap.querySelector('img') || iconWrap;
+        let raf = null;
+        let last = {x:0, y:0};
+
+        iconWrap.addEventListener('mousemove', (e) => {
+            const rect = iconWrap.getBoundingClientRect();
+            const px = (e.clientX - rect.left) / rect.width - 0.75;
+            const py = (e.clientY - rect.top) / rect.height - 0.15;
+            last = {x: px, y: py};
+            if (!raf) {
+                raf = requestAnimationFrame(() => {
+                    const rx = (last.y * 8).toFixed(2);
+                    const ry = (last.x * -8).toFixed(2);
+                    iconWrap.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+                    raf = null;
+                });
+            }
+        });
+
+        iconWrap.addEventListener('mouseleave', () => {
+            if (raf) cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+                iconWrap.style.transform = '';
+                raf = null;
+            });
+        });
+    });
+}
+
+// Header tint / refraction on scroll for added depth
+function initHeaderRefraction() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    window.addEventListener('scroll', () => {
+        if (prefersReduced) return;
+        const scroll = Math.min(window.scrollY, 300);
+        const alpha = 0.72 - (scroll / 1200); // reduce slightly as user scrolls
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        if (!isDark) {
+            header.style.background = `linear-gradient(180deg, rgba(255,255,255,${alpha}), rgba(245,247,251,0.48))`;
+            header.style.boxShadow = scroll > 20 ? '0 6px 24px rgba(16,24,40,0.06)' : '';
+        } else {
+            // dark tint interpolation
+            const darkAlpha = 0.5 - (scroll / 1800);
+            header.style.background = `linear-gradient(180deg, rgba(18,20,24,${darkAlpha}), rgba(18,20,24,0.36))`;
+            header.style.boxShadow = scroll > 20 ? '0 6px 24px rgba(0,0,0,0.28)' : '';
+        }
+    }, { passive: true });
+}
+
 // Active nav link indicator
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section');
@@ -158,7 +240,7 @@ function updateActiveNavLink() {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 200) {
+            if (window.scrollY >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
         });
@@ -172,13 +254,159 @@ function updateActiveNavLink() {
     });
 }
 
+// Dynamic island: show headshot in nav when the gallery (tech stack) is visible
+function initDynamicIsland() {
+    const gallery = document.querySelector('#gallery');
+    const header = document.querySelector('.site-header');
+    const islandBtn = document.querySelector('.island');
+    const islandImg = document.querySelector('.island-img');
+    const islandName = document.querySelector('.island-name');
+    if (!gallery || !header || !islandBtn || !islandImg) return;
+
+    // lazily set the headshot src from the main headshot image
+    const mainHeadshot = document.querySelector('.headshot-image');
+    const imgSrc = mainHeadshot ? mainHeadshot.getAttribute('src') : '';
+    if (imgSrc) islandImg.src = imgSrc;
+
+    // Use a scroll-based rAF check so the island becomes visible when
+    // the page reaches the Technology Stack and stays visible until
+    // the user scrolls back above it.
+    let ticking = false;
+
+    function checkIsland() {
+        ticking = false;
+        const headerHeight = header ? header.offsetHeight || 0 : 0;
+        const galleryRect = gallery.getBoundingClientRect();
+        const triggerPoint = galleryRect.top + window.scrollY - headerHeight - 24;
+        const shouldShow = window.scrollY >= triggerPoint;
+        
+        // Only toggle classes if state actually changes
+        if (shouldShow && !header.classList.contains('island-visible')) {
+            requestAnimationFrame(() => {
+                header.classList.add('island-visible');
+                document.body.classList.add('island-visible');
+            });
+        } else if (!shouldShow && header.classList.contains('island-visible')) {
+            requestAnimationFrame(() => {
+                header.classList.remove('island-visible');
+                document.body.classList.remove('island-visible');
+            });
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(checkIsland);
+        }
+    }, { passive: true });
+
+    // Initial check on load
+    checkIsland();
+}
+
+// Trigger floating animations in About after the intro completes
+function initAboutFloating() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    const introInner = document.querySelector('.about-intro-inner');
+    const floatCards = document.querySelectorAll('.float-card');
+    if (!introInner || !floatCards.length) return;
+
+    // After the intro animation duration, add the animate class to float-cards
+    const introDuration = 900; // matches CSS animation time in ms
+    setTimeout(() => {
+        floatCards.forEach((c, i) => {
+            // staggered start for lively motion
+            setTimeout(() => c.classList.add('animate'), i * 180);
+        });
+    }, introDuration + 120);
+}
+
+// One-time Siri intro overlay: plays on first user interaction
+function initSiriOverlay() {
+    const overlay = document.querySelector('.siri-overlay');
+    if (!overlay) return;
+    const played = localStorage.getItem('siri_intro_played');
+
+    function playOnce() {
+        if (played) return;
+        // Add active class and handle cleanup after animation
+        overlay.classList.add('is-active');
+        // Wait for the full animation sequence (1600ms) plus a small buffer
+        setTimeout(() => {
+            overlay.classList.remove('is-active');
+            // Fade out backdrop blur gradually
+            overlay.style.transition = 'backdrop-filter 400ms ease-out';
+            overlay.style.backdropFilter = 'blur(0px)';
+        }, 1650);
+        localStorage.setItem('siri_intro_played', '1');
+        // Clean up listeners
+        window.removeEventListener('pointerdown', playOnce);
+        window.removeEventListener('keydown', playOnce);
+    }
+
+    // Wait for the user's first pointer or keyboard interaction
+    if (!played) {
+        window.addEventListener('pointerdown', playOnce, { once: true });
+        window.addEventListener('keydown', playOnce, { once: true });
+    }
+}
+
+// Section style controls (Experience & Projects)
+function initSectionStyleControls() {
+    const controls = document.querySelectorAll('.section-style-controls');
+    if (!controls.length) return;
+
+    controls.forEach(ctrl => {
+        const target = ctrl.dataset.target;
+        const buttons = ctrl.querySelectorAll('.style-btn');
+        const sectionEl = document.querySelector(`.${target}-section`);
+        if (!sectionEl) return;
+
+        // Load saved preference
+        const saved = localStorage.getItem(`view-${target}`);
+        if (saved) {
+            sectionEl.classList.remove(...Array.from(sectionEl.classList).filter(c => c.startsWith('view-')));
+            sectionEl.classList.add(`view-${saved}`);
+            buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.style === saved ? 'true' : 'false'));
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const style = btn.dataset.style;
+                // reset aria
+                buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+                btn.setAttribute('aria-pressed', 'true');
+
+                // remove previous view-* classes
+                sectionEl.classList.remove(...Array.from(sectionEl.classList).filter(c => c.startsWith('view-')));
+                sectionEl.classList.add(`view-${style}`);
+                localStorage.setItem(`view-${target}`, style);
+            });
+        });
+    });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
     initTechFlow();
     initHeadshotEffects();
     initExperienceReveal();
+    initParallaxAndTilt();
+    initHeaderRefraction();
     updateActiveNavLink();
+    // trigger header sheen on initial load for subtle polish
+    retriggerHeaderSheen();
+    // start dynamic island observer
+    initDynamicIsland();
+    // start About floating animations
+    initAboutFloating();
+    // initialize Siri one-time overlay
+    initSiriOverlay();
+    // initialize section style controls
+    initSectionStyleControls();
     
     // Add hover effects for connection lines
     document.querySelectorAll('.tech-item').forEach(item => {
@@ -208,6 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Event listeners
 darkModeToggle.addEventListener('click', toggleDarkMode);
+darkModeToggle.addEventListener('click', retriggerHeaderSheen);
 
 // Handle system dark mode changes
 prefersDarkScheme.addEventListener('change', (e) => {

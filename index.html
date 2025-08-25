@@ -22,6 +22,8 @@
   <div class="page-loader" aria-hidden="true">
     <div class="loader-spinner"></div>
   </div>
+  <!-- Siri intro overlay (plays once on first user interaction) -->
+  <div class="siri-overlay" aria-hidden="true"></div>
   
   <header class="site-header" role="banner">
     <div class="container">
@@ -32,11 +34,24 @@
         <span class="nav-icon"></span>
       </button>
       <nav class="site-nav" role="navigation" aria-label="Main navigation">
-        <a href="#about" class="nav-link"><span>About</span></a>
-        <a href="#gallery" class="nav-link"><span>Gallery</span></a>
-        <a href="#experience" class="nav-link"><span>Experience</span></a>
-        <a href="#projects" class="nav-link"><span>Projects</span></a>
-        <a href="#contact" class="nav-link"><span>Contact</span></a>
+        <div class="nav-pill">
+          <div class="nav-left">
+            <button class="island" aria-hidden="true">
+              <img class="island-img" src="" alt="Mrinal Raj" />
+            </button>
+            <span class="island-name">Mrinal Raj</span>
+          </div>
+          <div class="nav-center" role="menubar">
+            <a href="#about" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-user" aria-hidden="true"></i></span><span class="nav-label">About</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="#gallery" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></span><span class="nav-label">Tech</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="#experience" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span><span class="nav-label">Experience</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="#projects" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-code-branch" aria-hidden="true"></i></span><span class="nav-label">Projects</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="#contact" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span><span class="nav-label">Contact</span><span class="refraction" aria-hidden="true"></span></a>
+          </div>
+
+          <div class="nav-right">
+          </div>
+        </div>
       </nav>
       <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
         <span class="toggle-icon" aria-hidden="true">🌙</span>
@@ -141,51 +156,56 @@
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
+    <section id="about" class="section about-section">
+      <div class="about-intro" aria-hidden="true">
+        <div class="about-intro-inner">
+          <h2 class="intro-title">About Me</h2>
+          <p class="intro-sub">Driven by curiosity and fueled by innovation — I build intuitive iOS apps, design human-centred interfaces, and apply ML where it matters.</p>
+        </div>
+      </div>
+
+      <div class="container about-content" aria-labelledby="about">
         <div class="section-grid">
-          <div class="section-header">
+          <div class="section-header visually-hidden">
             <h2>About Me</h2>
           </div>
+
           <div class="section-content">
-            <p class="lead">Driven by curiosity and fueled by innovation, I combine technical expertise 
-            with creative problem-solving to deliver impactful solutions.</p>
-            <div class="info-flow">
+            <p class="lead about-lead">I combine technical craft with product empathy to create polished mobile experiences and data-driven features. My work balances elegant UI, robust architecture, and practical ML where it improves outcomes.</p>
+
+            <div class="info-flow floating">
               <div class="info-column">
-                <div class="info-item" data-category="location">
-                  <div class="info-icon">
-                    <i class="fas fa-map-marker-alt"></i>
+                <div class="info-item float-card" data-category="location">
+                  <div class="info-icon floating-icon">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                   </div>
                   <h3>Location</h3>
                   <p>Charlotte, North Carolina, USA</p>
-                  <div class="connection-line"></div>
                 </div>
               </div>
-              
+
               <div class="info-column">
-                <div class="info-item" data-category="expertise">
-                  <div class="info-icon">
-                    <i class="fas fa-code"></i>
+                <div class="info-item float-card" data-category="expertise">
+                  <div class="info-icon floating-icon">
+                    <i class="fas fa-code" aria-hidden="true"></i>
                   </div>
                   <h3>Core Expertise</h3>
                   <ul class="expertise-list">
                     <li>iOS Development</li>
                     <li>UI/UX Design</li>
-                    <li>Data Science</li>
-                    <li>Machine Learning</li>
+                    <li>Data Science & ML</li>
+                    <li>System Architecture</li>
                   </ul>
-                  <div class="connection-line"></div>
                 </div>
               </div>
-              
+
               <div class="info-column">
-                <div class="info-item" data-category="focus">
-                  <div class="info-icon">
-                    <i class="fas fa-bullseye"></i>
+                <div class="info-item float-card" data-category="focus">
+                  <div class="info-icon floating-icon">
+                    <i class="fas fa-bullseye" aria-hidden="true"></i>
                   </div>
                   <h3>Industry Focus</h3>
                   <p>App Dev, AI/ML, Product Design</p>
-                  <div class="connection-line"></div>
                 </div>
               </div>
             </div>
@@ -196,7 +216,14 @@
     <div class="section-separator"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
     <section id="experience" class="experience-section apple-section">
       <div class="container section-grid">
-        <div class="section-title"><h2>Experience</h2></div>
+        <div class="section-title">
+          <h2>Experience</h2>
+          <div class="section-style-controls" data-target="experience" aria-label="Change experience view">
+            <button class="style-btn" data-style="cards" title="Cards view" aria-pressed="true"><i class="fas fa-th-large" aria-hidden="true"></i></button>
+            <button class="style-btn" data-style="timeline" title="Timeline view" aria-pressed="false"><i class="fas fa-stream" aria-hidden="true"></i></button>
+            <button class="style-btn" data-style="compact" title="Compact list" aria-pressed="false"><i class="fas fa-list" aria-hidden="true"></i></button>
+          </div>
+        </div>
         <div class="section-content experience-list">
           <div class="exp-item" tabindex="0">
             <h3>Software Developer Intern</h3>
@@ -225,7 +252,14 @@
     <div class="section-separator"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
     <section id="projects" class="projects-section apple-section">
       <div class="container section-grid">
-        <div class="section-title"><h2>Projects</h2></div>
+        <div class="section-title">
+          <h2>Projects</h2>
+          <div class="section-style-controls" data-target="projects" aria-label="Change projects view">
+            <button class="style-btn" data-style="grid" title="Grid" aria-pressed="true"><i class="fas fa-th" aria-hidden="true"></i></button>
+            <button class="style-btn" data-style="list" title="List" aria-pressed="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            <button class="style-btn" data-style="compact" title="Compact" aria-pressed="false"><i class="fas fa-compress" aria-hidden="true"></i></button>
+          </div>
+        </div>
         <div class="section-content project-list">
           <div class="project-item">
             <h3>LLM Generated Text Detection</h3>
