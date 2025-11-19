@@ -130,6 +130,10 @@
     <div class="rain-overlay" aria-hidden="true"></div>
   </main>
 
+  <button class="story-button" aria-label="View story" title="View story">
+    <i class="fas fa-book" aria-hidden="true"></i>
+  </button>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>&copy; 2025 Mrinal Raj Lakkimsetty. All rights reserved. ✨</p>
@@ -166,6 +170,33 @@
       } else {
         siteNav.style.display = 'none';
       }
+    });
+
+    const storyBtn = document.querySelector('.story-button');
+    let storyBtnCooldown = false;
+    storyBtn?.addEventListener('click', (e) => {
+      if (storyBtnCooldown) return;
+      storyBtnCooldown = true;
+      storyBtn.disabled = true;
+      const x = e.clientX;
+      const y = e.clientY;
+      for (let i = 0; i < 8; i++) {
+        const apple = document.createElement('i');
+        apple.className = 'fas fa-apple apple-icon';
+        const angle = (Math.PI * 2 * i) / 8;
+        const distance = 300;
+        apple.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+        apple.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+        apple.style.left = x + 'px';
+        apple.style.top = y + 'px';
+        document.body.appendChild(apple);
+        setTimeout(() => apple.remove(), 3000);
+      }
+      setTimeout(() => window.location.href = 'story.html', 100);
+      setTimeout(() => {
+        storyBtnCooldown = false;
+        storyBtn.disabled = false;
+      }, 3500);
     });
 
     document.querySelectorAll('.design-link').forEach(link => {

@@ -931,6 +931,78 @@ h3 {
 /* -----------------------------
    Footer
 ------------------------------*/
+.story-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B9D 0%, #C2185B 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(194, 24, 91, 0.35);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 100;
+}
+
+.story-button:hover:not(:disabled) {
+  transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 12px 32px rgba(194, 24, 91, 0.5);
+}
+
+.story-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.story-button i {
+  background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #FF1493 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .story-button {
+  background: linear-gradient(135deg, #E91E63 0%, #AD1457 100%);
+  box-shadow: 0 8px 24px rgba(233, 30, 99, 0.4);
+}
+
+[data-theme="dark"] .story-button:hover:not(:disabled) {
+  box-shadow: 0 12px 32px rgba(233, 30, 99, 0.6);
+}
+
+[data-theme="dark"] .story-button i {
+  background: linear-gradient(135deg, #FF80AB 0%, #FF4081 50%, #F50057 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes appleShoot {
+  0% {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0.3);
+  }
+}
+
+.apple-icon {
+  position: fixed;
+  font-size: 2rem;
+  pointer-events: none;
+  animation: appleShoot 3s ease-out forwards;
+  color: rgba(156, 39, 176, 0.6);
+}
+
 .site-footer {
   text-align: center;
   padding: 2rem;
