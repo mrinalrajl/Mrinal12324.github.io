@@ -679,11 +679,6 @@ h3 {
     transform: scale(0.99);
   }
 
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35),
-  0 0 40px rgba(0, 175, 255, 0.3);
-  border-color: rgba(0, 175, 255, 0.45);
-}
-
 /* Typography inside cards */
 .exp-item h3,
 .project-item h3 {
