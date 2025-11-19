@@ -3313,3 +3313,46 @@ h3 {
     margin-right: 0 !important;
   }
 }
+
+.designs-page .timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #000000 0%, #333333 50%, #000000 100%);
+  transform: translateX(-50%);
+}
+
+[data-theme="dark"] .designs-page .timeline-line {
+  background: linear-gradient(180deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
+}
+
+.designs-page .timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 2px #000000, 0 0 20px rgba(0, 122, 255, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-theme="dark"] .designs-page .timeline-dot {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 20px rgba(0, 122, 255, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.designs-page .timeline-item:hover .timeline-dot {
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 0 0 2px #000000, 0 0 30px rgba(0, 122, 255, 0.9), inset 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .designs-page .timeline-item:hover .timeline-dot {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 30px rgba(0, 122, 255, 1), inset 0 0 12px rgba(255, 255, 255, 0.3);
+}
