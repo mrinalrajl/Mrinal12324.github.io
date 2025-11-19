@@ -1792,16 +1792,14 @@ h3 {
 }
 
 .hero-section .subheadline {
+  font-family: 'Pacifico', cursive;
   font-size: var(--font-xl);
-  font-weight: var(--fw-black);
-  background: var(--accent-6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+  color: var(--text-primary);
   margin-bottom: var(--spacing-unit);
   line-height: var(--lh-snug);
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: relative;
   display: inline-block;
   padding: 0.2em 0;
