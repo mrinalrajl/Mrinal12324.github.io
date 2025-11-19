@@ -1257,9 +1257,14 @@ h3 {
   transform: translateY(-8px) translateZ(8px) rotateX(1deg);
 }
 
+.exp-diff {
+  font-weight: 900 !important;
+}
+
 [data-theme="dark"] .exp-diff {
-  color: rgba(246, 200, 95, 0.95);
+  color: #ff9500 !important;
   background: linear-gradient(90deg, rgba(94, 53, 177, 0.04), rgba(48, 76, 254, 0.04));
+  font-weight: 900 !important;
 }
 
 [data-theme="dark"] .section-separator .line {
