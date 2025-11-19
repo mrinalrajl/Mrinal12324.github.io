@@ -664,14 +664,36 @@ h3 {
 
 .exp-item ul,
 .project-item ul {
-  margin: 0;
-  padding-left: 1.2rem;
+  margin: 0 !important;
+  padding-left: 1.2rem !important;
+}
+
+.exp-details li,
+.proj-details li {
+  font-family: 'Inter', sans-serif !important;
+  color: #ffffff !important;
+  margin: 0.3rem 0 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .exp-details li,
+[data-theme="dark"] .proj-details li {
+  color: #000000 !important;
+  font-weight: 300 !important;
 }
 
 .exp-item ul li,
 .project-item ul li {
-  color: var(--text-secondary);
-  margin: 0.3rem 0;
+  font-family: 'Inter', sans-serif !important;
+  color: #ffffff !important;
+  margin: 0.3rem 0 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .exp-item ul li,
+[data-theme="dark"] .project-item ul li {
+  color: #000000 !important;
+  font-weight: 300 !important;
 }
 
 /* -----------------------------
@@ -2022,9 +2044,17 @@ h3 {
 
 .exp-item p,
 .project-item p {
-  font-size: var(--font-base);
-  line-height: var(--lh-relaxed);
-  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif !important;
+  font-size: var(--font-base) !important;
+  line-height: var(--lh-relaxed) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .exp-item p,
+[data-theme="dark"] .project-item p {
+  color: #000000 !important;
+  font-weight: 300 !important;
 }
 
 /* Contact Section Typography */
