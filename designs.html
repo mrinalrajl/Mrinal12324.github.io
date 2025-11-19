@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Designs — Mrinal Raj</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html#hero" class="site-logo" aria-label="Go to hero section">
+        <span class="logo-text">Mrinal Raj</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="nav-icon"></span>
+      </button>
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-pill">
+          <div class="nav-left">
+            <button class="island" aria-hidden="true">
+              <img class="island-img" src="images/DSC_2645.JPEG.jpg" alt="Mrinal Raj" />
+            </button>
+            <span class="island-name">Mrinal Raj</span>
+          </div>
+          <div class="nav-center" role="menubar">
+            <a href="index.html#about" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-user" aria-hidden="true"></i></span><span class="nav-label">About</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="index.html#gallery" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></span><span class="nav-label">Tech</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="index.html#experience" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span><span class="nav-label">Experience</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="index.html#projects" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-code-branch" aria-hidden="true"></i></span><span class="nav-label">Projects</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="designs.html" class="nav-link nav-active" role="menuitem"><span class="nav-icon"><i class="fas fa-palette" aria-hidden="true"></i></span><span class="nav-label">Designs</span><span class="refraction" aria-hidden="true"></span></a>
+            <a href="index.html#contact" class="nav-link" role="menuitem"><span class="nav-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span><span class="nav-label">Contact</span><span class="refraction" aria-hidden="true"></span></a>
+          </div>
+
+          <div class="nav-right">
+          </div>
+        </div>
+      </nav>
+      <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="toggle-icon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="designs-page">
+    <div class="container">
+      <h1 class="page-title">Designs</h1>
+      <p class="lead">A curated collection of product and visual design work. Click any card to view the original project.</p>
+
+      <div class="projects-list">
+
+        <article class="proj-row card">
+          <a class="design-link" href="#" data-href="https://example.com/project-llm" aria-label="Open LLM Generated Text Detection project">
+            <div class="thumb">
+              <img src="images/llm-detection-thumb.jpg" alt="LLM Detection thumbnail" loading="lazy">
+            </div>
+            <div class="proj-meta">
+              <h3>LLM Generated Text Detection</h3>
+              <span class="proj-date">Jan 2024 - May 2024</span>
+              <p>Built SVM and BERT models to detect AI-generated text with high accuracy. Includes model evaluation dashboards and reproducible training pipelines.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="proj-row card">
+          <a class="design-link" href="#" data-href="https://example.com/project-db-benchmark" aria-label="Open DB comparative analysis project">
+            <div class="thumb">
+              <img src="images/db-benchmark-thumb.jpg" alt="DB benchmark thumbnail" loading="lazy">
+            </div>
+            <div class="proj-meta">
+              <h3>Comparative Analysis: MongoDB vs DynamoDB</h3>
+              <span class="proj-date">Oct 2023 - Dec 2023</span>
+              <p>Benchmarked storage and retrieval performance for production datasets and produced actionable recommendations for selection and sharding strategies.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="proj-row card">
+          <a class="design-link" href="#" data-href="https://example.com/project-blog-chat" aria-label="Open Blog with Chatting System project">
+            <div class="thumb">
+              <img src="images/blog-chat-thumb.jpg" alt="Blog chat thumbnail" loading="lazy">
+            </div>
+            <div class="proj-meta">
+              <h3>Blog Page with Chatting System</h3>
+              <span class="proj-date">Jan 2022 - Apr 2022</span>
+              <p>Real-time chat integrated with GraphQL and a modern CMS — designed for moderate-traffic editorial sites with inbuilt conversation features.</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+    <div class="rain-overlay" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Mrinal Raj Lakkimsetty</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Mobile menu functionality (same as index.html)
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navToggle?.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      siteNav.style.display = isExpanded ? 'none' : 'flex';
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          navToggle.setAttribute('aria-expanded', 'false');
+          siteNav.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        siteNav.style.display = 'flex';
+        document.body.style.overflow = '';
+      } else {
+        siteNav.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

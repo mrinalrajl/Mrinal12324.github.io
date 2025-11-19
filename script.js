@@ -407,6 +407,44 @@ document.addEventListener('DOMContentLoaded', () => {
     initSiriOverlay();
     // initialize section style controls
     initSectionStyleControls();
+    // Designs page: rain-overlay click animation before following links
+    (function initDesignsPage() {
+        const rain = document.querySelector('.rain-overlay');
+        const links = document.querySelectorAll('.design-link');
+        if (!links || !links.length) return;
+
+        function activateRainOnce(cb) {
+            if (!rain) { cb(); return; }
+            rain.classList.add('is-active');
+            // Wait for rain-fall animation to mostly complete, then call cb
+            setTimeout(() => {
+                rain.classList.remove('is-active');
+                cb();
+            }, 750);
+        }
+
+        links.forEach(a => {
+            // keyboard accessibility
+            a.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    ev.preventDefault();
+                    const href = a.dataset.href || a.getAttribute('href');
+                    activateRainOnce(() => { if (href && href !== '#') window.open(href, '_blank'); });
+                }
+            });
+
+            a.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                const href = a.dataset.href || a.getAttribute('href');
+                // quick tactile press feedback
+                a.classList.add('pressed');
+                setTimeout(() => a.classList.remove('pressed'), 160);
+                activateRainOnce(() => {
+                    if (href && href !== '#') window.open(href, '_blank');
+                });
+            });
+        });
+    })();
     
     // Add hover effects for connection lines
     document.querySelectorAll('.tech-item').forEach(item => {

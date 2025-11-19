@@ -198,6 +198,132 @@ h3 { font-size: clamp(1.5rem,3vw,2rem); font-weight:700; }
 }
 .exp-item:hover, .project-item:hover {
   transform: translateY(-6px) scale(1.02);
+
+/* Designs Section Styles */
+.designs-section .designs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  align-items: start;
+}
+
+.design-item.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  padding-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: var(--minimal-shadow);
+  transition: transform 360ms cubic-bezier(0.16,1,0.3,1), box-shadow 280ms ease, opacity 260ms ease;
+}
+
+.design-item.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--elegant-shadow);
+}
+
+.design-item .design-meta {
+  display:block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0.35rem 0 0.6rem 0;
+}
+
+.designs-list .design-item {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 620ms cubic-bezier(0.2,0.8,0.2,1) forwards;
+}
+.designs-list .design-item:nth-child(1) { animation-delay: 0.08s; }
+.designs-list .design-item:nth-child(2) { animation-delay: 0.16s; }
+.designs-list .design-item:nth-child(3) { animation-delay: 0.24s; }
+
+/* Nav link hover polish */
+.nav-center .nav-link {
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:6px 10px;
+  border-radius:10px;
+  transition: background 240ms ease, transform 240ms ease, color 240ms ease;
+}
+.nav-center .nav-link:hover {
+  background: linear-gradient(90deg, rgba(var(--primary-rgb),0.06), rgba(var(--secondary-rgb),0.03));
+  transform: translateY(-2px);
+}
+.nav-center .nav-link .nav-icon {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 28px;
+  height: 28px;
+  transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1), filter 280ms;
+}
+.nav-center .nav-link:hover .nav-icon {
+  transform: translateY(-3px) scale(1.12);
+  filter: drop-shadow(0 8px 20px rgba(0,122,255,0.12));
+}
+
+/* Accessibility: reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .designs-list .design-item,
+  .nav-center .nav-link,
+  .nav-center .nav-link .nav-icon { transition: none; animation: none; }
+}
+
+/* Designs page layout (project rows) */
+.designs-page .projects-list { display:flex; flex-direction:column; gap:1rem; }
+.proj-row { display:flex; gap:1rem; align-items:stretch; padding:0; }
+.proj-row .thumb { flex:0 0 42%; max-width:42%; overflow:hidden; border-radius:8px; }
+.proj-row .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-row .proj-meta { flex:1 1 58%; padding:1rem; }
+.proj-row .proj-meta h3 { margin-bottom:0.25rem; }
+.proj-row .proj-meta p { color:var(--text-secondary); margin-top:0.5rem; }
+.proj-row .proj-date { display:block; color:var(--text-secondary); font-size:0.9rem; margin-bottom:0.6rem; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 760px) {
+  .proj-row { flex-direction:column; }
+  .proj-row .thumb { max-width:100%; flex-basis:100%; }
+  .proj-row .proj-meta { padding:0.75rem 0; }
+}
+
+/* Rain overlay: repeated radial gradients that translate downward to mimic droplets */
+.rain-overlay {
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 260ms ease-in-out;
+  mix-blend-mode: screen;
+}
+.rain-overlay.is-active { opacity: 1; }
+.rain-overlay::before {
+  content: "";
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle at 10% 0%, rgba(255,255,255,0.55) 0.6%, transparent 1%),
+                    radial-gradient(circle at 40% -10%, rgba(255,255,255,0.38) 0.6%, transparent 1%),
+                    radial-gradient(circle at 70% -6%, rgba(255,255,255,0.45) 0.6%, transparent 1%),
+                    radial-gradient(circle at 90% -2%, rgba(255,255,255,0.3) 0.6%, transparent 1%);
+  background-size: 160px 320px, 140px 280px, 180px 360px, 120px 240px;
+  background-repeat: repeat-x;
+  transform: translateY(-10%);
+  opacity: 0.95;
+  will-change: transform;
+  animation: rain-fall 900ms linear forwards;
+}
+
+@keyframes rain-fall {
+  0% { transform: translateY(-40%); opacity: 0.0; }
+  20% { opacity: 0.9; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Small polish: clicking a design-link shows a quick subtle scale-down before animation */
+.design-link { display:flex; gap:1rem; align-items:stretch; text-decoration:none; color:inherit; }
+.design-link:active .card { transform: scale(0.99); }
+
   box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 40px rgba(0,175,255,0.3);
   border-color: rgba(0,175,255,0.45);
 }
