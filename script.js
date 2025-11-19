@@ -10,7 +10,7 @@ function initTechFlow() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                
+
                 // Animate connection lines after item appears
                 const connectionLine = entry.target.querySelector('.connection-line');
                 if (connectionLine) {
@@ -72,13 +72,13 @@ function initDarkMode() {
 // Enhanced Dark Mode Toggle
 function toggleDarkMode() {
     const isDark = document.body.getAttribute('data-theme') === 'dark';
-    
+
     // Prepare for transition
     document.body.style.transition = 'background-color 0.3s ease-in-out, color 0.3s ease-in-out';
     document.querySelectorAll('.tech-icon img').forEach(img => {
         img.style.transition = 'filter 0.3s ease-in-out';
     });
-    
+
     // Toggle theme
     if (isDark) {
         document.body.removeAttribute('data-theme');
@@ -89,7 +89,7 @@ function toggleDarkMode() {
         localStorage.setItem('theme', 'dark');
         darkModeToggle.querySelector('.toggle-icon').textContent = '☀️';
     }
-    
+
     // Animate tech icons
     document.querySelectorAll('.tech-icon').forEach((icon, index) => {
         setTimeout(() => {
@@ -180,13 +180,13 @@ function initParallaxAndTilt() {
     techIcons.forEach(iconWrap => {
         const icon = iconWrap.querySelector('img') || iconWrap;
         let raf = null;
-        let last = {x:0, y:0};
+        let last = { x: 0, y: 0 };
 
         iconWrap.addEventListener('mousemove', (e) => {
             const rect = iconWrap.getBoundingClientRect();
             const px = (e.clientX - rect.left) / rect.width - 0.75;
             const py = (e.clientY - rect.top) / rect.height - 0.15;
-            last = {x: px, y: py};
+            last = { x: px, y: py };
             if (!raf) {
                 raf = requestAnimationFrame(() => {
                     const rx = (last.y * 8).toFixed(2);
@@ -279,7 +279,7 @@ function initDynamicIsland() {
         const galleryRect = gallery.getBoundingClientRect();
         const triggerPoint = galleryRect.top + window.scrollY - headerHeight - 24;
         const shouldShow = window.scrollY >= triggerPoint;
-        
+
         // Only toggle classes if state actually changes
         if (shouldShow && !header.classList.contains('island-visible')) {
             requestAnimationFrame(() => {
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = url;
         });
     });
-    
+
     // Add hover effects for connection lines
     document.querySelectorAll('.tech-item').forEach(item => {
         item.addEventListener('mouseenter', () => {
@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-        
+
         item.addEventListener('mouseleave', () => {
             const column = item.closest('.flow-column');
             if (column) {
