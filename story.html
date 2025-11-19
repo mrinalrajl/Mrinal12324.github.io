@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Story — Mrinal Raj</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html#hero" class="site-logo">Mrinal Raj</a>
+    </div>
+  </header>
+
+  <main class="story-page">
+    <div class="container">
+      <div class="story-panel card">
+        <h1 id="story-title">Story</h1>
+        <p id="story-desc" class="lead">Loading story...</p>
+        <div id="story-actions">
+          <button id="skip-btn" class="secondary-btn">Skip</button>
+          <a id="continue-link" class="primary-btn" href="#">Continue</a>
+        </div>
+      </div>
+    </div>
+    <canvas id="story-canvas" class="story-canvas" aria-hidden="true"></canvas>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">&copy; 2025 Mrinal Raj Lakkimsetty</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Read query params
+    function param(name){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    const story = param('story') || 'rain';
+    const target = decodeURIComponent(param('target') || 'index.html');
+
+    const titleMap = {
+      rain: 'Design Rain',
+      flow: 'Project Flow',
+      drop: 'Drop Moment',
+      ripple: 'Tech Ripple',
+      spark: 'Contact Spark',
+      wave: 'About Wave'
+    };
+    const descMap = {
+      rain: 'A cascade of ideas and visuals. Experience the designs as a falling stream of creativity.',
+      flow: 'A flowing overview of connected projects — watch the pathways emerge.',
+      drop: 'Key moments that shaped the experience — focus on the impact.',
+      ripple: 'Small changes with big effects. Observe the ripple across the stack.',
+      spark: 'A quick spark — reach out and start the conversation.',
+      wave: 'A gentle wave of who I am and what I build.'
+    };
+
+    document.getElementById('story-title').textContent = titleMap[story] || 'Story';
+    document.getElementById('story-desc').textContent = descMap[story] || '';
+    const continueLink = document.getElementById('continue-link');
+    continueLink.href = target;
+
+    // play particle transition on load using the same engine
+    window.addEventListener('load', () => {
+      // run longer transition then reveal actions
+      if (typeof runParticleTransition === 'function') {
+        runParticleTransition(story, 1100, () => {
+          // show actions
+          document.getElementById('story-actions').style.opacity = 1;
+        });
+      } else {
+        // fallback: just show actions
+        document.getElementById('story-actions').style.opacity = 1;
+      }
+    });
+
+    // Skip button goes straight to target
+    document.getElementById('skip-btn').addEventListener('click', () => {
+      window.location.href = target;
+    });
+  </script>
+</body>
+</html>

@@ -445,6 +445,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     })();
+    // Nav icon shortcut: open a dedicated story page when icon is clicked
+    document.querySelectorAll('.nav-link .nav-icon').forEach(icon => {
+        icon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            const parent = this.closest('.nav-link');
+            if (!parent) return;
+            const href = parent.getAttribute('href') || 'index.html';
+            const story = parent.dataset.story || 'rain';
+            const url = `story.html?story=${encodeURIComponent(story)}&target=${encodeURIComponent(href)}`;
+            window.location.href = url;
+        });
+    });
     
     // Add hover effects for connection lines
     document.querySelectorAll('.tech-item').forEach(item => {
