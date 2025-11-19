@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Story — Mrinal Raj</title>
+  <title>My UI/UX Journey — Mrinal Raj</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,21 +11,92 @@
   <header class="site-header">
     <div class="container">
       <a href="index.html#hero" class="site-logo">Mrinal Raj</a>
+      <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">🌙</span>
+      </button>
     </div>
   </header>
 
   <main class="story-page">
     <div class="container">
-      <div class="story-panel card">
-        <h1 id="story-title">Story</h1>
-        <p id="story-desc" class="lead">Loading story...</p>
-        <div id="story-actions">
-          <button id="skip-btn" class="secondary-btn">Skip</button>
-          <a id="continue-link" class="primary-btn" href="#">Continue</a>
+      <h1 class="page-title">My UI/UX Journey</h1>
+      <p class="lead" style="text-align: center; margin-bottom: 3rem; color: var(--text-secondary);">
+        The story of how I discovered my passion for design and user experience
+      </p>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">2019</div>
+            <h3>The Spark</h3>
+            <p>It all started with a simple question: "Why is this app so hard to use?" I was frustrated with poorly designed interfaces and realized that good design isn't just about aesthetics—it's about solving real problems for real people.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">2020</div>
+            <h3>First Steps</h3>
+            <p>I dove into design thinking and user research. Learning about empathy mapping, user personas, and wireframing opened my eyes to a whole new world. I started redesigning apps I used daily, just for practice.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">2021</div>
+            <h3>The Breakthrough</h3>
+            <p>My first real project—designing a mobile app for a local business. Watching users interact with something I created was magical. Their feedback taught me more than any tutorial ever could. I was hooked.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">2022</div>
+            <h3>Expanding Horizons</h3>
+            <p>I discovered the intersection of design and development. Learning iOS development and SwiftUI allowed me to bring my designs to life. Understanding code made me a better designer—I could design with implementation in mind.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">2023</div>
+            <h3>Professional Growth</h3>
+            <p>Working on real-world projects taught me the importance of accessibility, performance, and scalability. I learned to balance user needs with business goals, and how to advocate for users in every decision.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">2024</div>
+            <h3>Design Systems & Innovation</h3>
+            <p>I fell in love with design systems—creating consistent, scalable experiences across platforms. Exploring AI-driven design tools and staying ahead of trends like glassmorphism and micro-interactions became my passion.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="story-card card">
+            <div class="story-year">Today</div>
+            <h3>The Journey Continues</h3>
+            <p>Every project is a new opportunity to learn and grow. I'm passionate about creating experiences that are not just beautiful, but meaningful—designs that make people's lives easier, more productive, and more delightful.</p>
+          </div>
         </div>
       </div>
+
+      <div style="text-align: center; margin-top: 4rem;">
+        <a href="index.html" class="primary-btn">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
     </div>
-    <canvas id="story-canvas" class="story-canvas" aria-hidden="true"></canvas>
   </main>
 
   <footer class="site-footer">
@@ -33,56 +104,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Read query params
-    function param(name){
-      const url = new URL(window.location.href);
-      return url.searchParams.get(name);
-    }
-
-    const story = param('story') || 'rain';
-    const target = decodeURIComponent(param('target') || 'index.html');
-
-    const titleMap = {
-      rain: 'Design Rain',
-      flow: 'Project Flow',
-      drop: 'Drop Moment',
-      ripple: 'Tech Ripple',
-      spark: 'Contact Spark',
-      wave: 'About Wave'
-    };
-    const descMap = {
-      rain: 'A cascade of ideas and visuals. Experience the designs as a falling stream of creativity.',
-      flow: 'A flowing overview of connected projects — watch the pathways emerge.',
-      drop: 'Key moments that shaped the experience — focus on the impact.',
-      ripple: 'Small changes with big effects. Observe the ripple across the stack.',
-      spark: 'A quick spark — reach out and start the conversation.',
-      wave: 'A gentle wave of who I am and what I build.'
-    };
-
-    document.getElementById('story-title').textContent = titleMap[story] || 'Story';
-    document.getElementById('story-desc').textContent = descMap[story] || '';
-    const continueLink = document.getElementById('continue-link');
-    continueLink.href = target;
-
-    // play particle transition on load using the same engine
-    window.addEventListener('load', () => {
-      // run longer transition then reveal actions
-      if (typeof runParticleTransition === 'function') {
-        runParticleTransition(story, 1100, () => {
-          // show actions
-          document.getElementById('story-actions').style.opacity = 1;
-        });
-      } else {
-        // fallback: just show actions
-        document.getElementById('story-actions').style.opacity = 1;
-      }
-    });
-
-    // Skip button goes straight to target
-    document.getElementById('skip-btn').addEventListener('click', () => {
-      window.location.href = target;
-    });
-  </script>
 </body>
 </html>

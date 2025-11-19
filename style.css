@@ -3558,3 +3558,51 @@ h3 {
 [data-theme="dark"] .designs-page .timeline-item:hover .timeline-dot {
   box-shadow: 0 0 0 2px #ffffff, 0 0 30px rgba(0, 122, 255, 1), inset 0 0 12px rgba(255, 255, 255, 0.3);
 }
+
+/* Story Timeline Styles */
+.story-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.story-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
+  border-color: rgba(0, 122, 255, 0.5);
+}
+
+[data-theme="dark"] .story-card {
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.7), rgba(20, 20, 20, 0.5));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.story-year {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.story-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--siri-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.story-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .story-card p {
+  color: rgba(255, 255, 255, 0.85);
+}
