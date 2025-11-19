@@ -59,7 +59,7 @@
               <img src="images/llm-detection-thumb.jpg" alt="LLM Detection thumbnail" loading="lazy">
             </div>
             <div class="proj-meta">
-              <h3>LLM Generated Text Detection</h3>
+              <h3 class="design-title">LLM Generated Text Detection</h3>
               <span class="proj-date">Jan 2024 - May 2024</span>
               <p>Built SVM and BERT models to detect AI-generated text with high accuracy. Includes model evaluation dashboards and reproducible training pipelines.</p>
             </div>
@@ -72,7 +72,7 @@
               <img src="images/db-benchmark-thumb.jpg" alt="DB benchmark thumbnail" loading="lazy">
             </div>
             <div class="proj-meta">
-              <h3>Comparative Analysis: MongoDB vs DynamoDB</h3>
+              <h3 class="design-title">Comparative Analysis: MongoDB vs DynamoDB</h3>
               <span class="proj-date">Oct 2023 - Dec 2023</span>
               <p>Benchmarked storage and retrieval performance for production datasets and produced actionable recommendations for selection and sharding strategies.</p>
             </div>
@@ -85,7 +85,7 @@
               <img src="images/blog-chat-thumb.jpg" alt="Blog chat thumbnail" loading="lazy">
             </div>
             <div class="proj-meta">
-              <h3>Blog Page with Chatting System</h3>
+              <h3 class="design-title">Blog Page with Chatting System</h3>
               <span class="proj-date">Jan 2022 - Apr 2022</span>
               <p>Real-time chat integrated with GraphQL and a modern CMS — designed for moderate-traffic editorial sites with inbuilt conversation features.</p>
             </div>
@@ -97,15 +97,15 @@
     <div class="rain-overlay" aria-hidden="true"></div>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>&copy; 2025 Mrinal Raj Lakkimsetty</p>
+      <p>&copy; 2025 Mrinal Raj Lakkimsetty. All rights reserved. ✨</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
   <script>
-    // Mobile menu functionality (same as index.html)
+    // Mobile menu functionality
     const navToggle = document.querySelector('.nav-toggle');
     const siteNav = document.querySelector('.site-nav');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -127,7 +127,6 @@
       });
     });
 
-    // Handle window resize
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
         siteNav.style.display = 'flex';
@@ -135,6 +134,15 @@
       } else {
         siteNav.style.display = 'none';
       }
+    });
+
+    // Anime-style click animation for design titles
+    document.querySelectorAll('.design-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const title = link.querySelector('.design-title');
+        title.classList.add('anime-click');
+        setTimeout(() => title.classList.remove('anime-click'), 600);
+      });
     });
   </script>
 </body>
