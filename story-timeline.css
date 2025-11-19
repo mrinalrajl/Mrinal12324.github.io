@@ -523,3 +523,63 @@
     margin-right: 0;
   }
 }
+
+/* Unique Story Page Button */
+.story-back-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.story-back-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.story-back-btn:hover::before {
+  left: 100%;
+}
+
+.story-back-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.6);
+}
+
+.story-back-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme="dark"] .story-back-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 10px 40px rgba(240, 147, 251, 0.4);
+}
+
+[data-theme="dark"] .story-back-btn:hover {
+  box-shadow: 0 20px 60px rgba(240, 147, 251, 0.6);
+}
