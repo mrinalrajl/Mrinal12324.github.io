@@ -257,19 +257,20 @@ h3 {
 
 .designs-section .designs-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(2.5rem, 4vw, 3.5rem);
     align-items: start;
   }
 
   .design-item.card {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
     border-radius: var(--border-radius);
-    padding: 2rem;
+    padding: 2.5rem;
     border: 1px solid rgba(255, 255, 255, 0.04);
     box-shadow: var(--minimal-shadow);
     transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 280ms ease, opacity 260ms ease, border-color 360ms ease;
     position: relative;
+    min-height: 320px;
   }
 
   .design-item.card::before {
