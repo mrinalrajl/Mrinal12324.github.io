@@ -55,80 +55,93 @@
 
         <article class="timeline-item">
           <div class="timeline-dot"></div>
-          <a class="design-link message-bubble" href="#" data-href="https://example.com/project-llm">
+          <div class="design-link message-bubble" data-behance-embed='<iframe src="https://www.behance.net/embed/project/129310399?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>'>
             <img src="https://via.placeholder.com/400x200?text=LLM+Detection" alt="LLM Detection">
             <div class="message-bubble-content">
               <h3 class="design-title">LLM Generated Text Detection</h3>
               <span class="proj-date">Jan 2024 - May 2024</span>
               <p>Built SVM and BERT models to detect AI-generated text with high accuracy.</p>
+              <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
             </div>
-          </a>
+          </div>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-dot"></div>
-          <a class="design-link message-bubble" href="#" data-href="https://example.com/project-db-benchmark">
+          <div class="design-link message-bubble" data-behance-embed='<iframe src="https://www.behance.net/embed/project/129310399?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>'>
             <img src="https://via.placeholder.com/400x200?text=MongoDB+vs+DynamoDB" alt="Database Comparison">
             <div class="message-bubble-content">
               <h3 class="design-title">Comparative Analysis: MongoDB vs DynamoDB</h3>
               <span class="proj-date">Oct 2023 - Dec 2023</span>
               <p>Benchmarked storage and retrieval performance for production datasets.</p>
+              <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
             </div>
-          </a>
+          </div>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-dot"></div>
-          <a class="design-link message-bubble" href="#" data-href="https://example.com/project-blog-chat">
+          <div class="design-link message-bubble" data-behance-embed='<iframe src="https://www.behance.net/embed/project/129310399?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>'>
             <img src="https://via.placeholder.com/400x200?text=Blog+Chat+System" alt="Blog Chat">
             <div class="message-bubble-content">
               <h3 class="design-title">Blog Page with Chatting System</h3>
               <span class="proj-date">Jan 2022 - Apr 2022</span>
               <p>Real-time chat integrated with GraphQL and a modern CMS.</p>
+              <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
             </div>
-          </a>
+          </div>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-dot"></div>
-          <a class="design-link message-bubble" href="#" data-href="https://example.com/project-etl">
+          <div class="design-link message-bubble" data-behance-embed='<iframe src="https://www.behance.net/embed/project/129310399?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>'>
             <img src="https://via.placeholder.com/400x200?text=ETL+Analysis" alt="ETL Analysis">
             <div class="message-bubble-content">
               <h3 class="design-title">ETL and EDA Analysis</h3>
               <span class="proj-date">Mar 2021 - Dec 2021</span>
               <p>Applied ETL and EDA techniques to prepare data for ML modeling.</p>
+              <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
             </div>
-          </a>
+          </div>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-dot"></div>
-          <a class="design-link message-bubble" href="#" data-href="https://example.com/project-ui-kit">
+          <div class="design-link message-bubble" data-behance-embed='<iframe src="https://www.behance.net/embed/project/129310399?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>'>
             <img src="https://via.placeholder.com/400x200?text=Mobile+UI+Kit" alt="UI Kit">
             <div class="message-bubble-content">
               <h3 class="design-title">Mobile App UI Kit</h3>
               <span class="proj-date">Figma · 2024</span>
               <p>Component-driven UI kit for rapid iOS prototyping.</p>
+              <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
             </div>
-          </a>
+          </div>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-dot"></div>
-          <a class="design-link message-bubble" href="#" data-href="https://example.com/project-landing">
+          <div class="design-link message-bubble" data-behance-embed='<iframe src="https://www.behance.net/embed/project/129310399?ilo0=1" height="316" width="404" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>'>
             <img src="https://via.placeholder.com/400x200?text=Landing+Page" alt="Landing Page">
             <div class="message-bubble-content">
               <h3 class="design-title">Landing Page Concept</h3>
               <span class="proj-date">Web · 2023</span>
               <p>Marketing landing with micro-interactions and clear visual hierarchy.</p>
+              <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
             </div>
-          </a>
+          </div>
         </article>
 
       </div>
     </div>
     <div class="rain-overlay" aria-hidden="true"></div>
   </main>
+
+  <div id="behanceModal" class="behance-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <iframe id="behanceFrame" frameborder="0" allowfullscreen allow="clipboard-write"></iframe>
+    </div>
+  </div>
 
   <button class="story-button" aria-label="View story" title="View story">
     <i class="fas fa-book" aria-hidden="true"></i>
@@ -199,12 +212,38 @@
       }, 3500);
     });
 
-    document.querySelectorAll('.design-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const title = link.querySelector('.design-title');
-        title.classList.add('anime-click');
-        setTimeout(() => title.classList.remove('anime-click'), 600);
+    document.querySelectorAll('.preview-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.design-link');
+        const embedCode = card.getAttribute('data-behance-embed');
+        if (!embedCode) return;
+        const srcMatch = embedCode.match(/src="([^"]+)"/);
+        if (!srcMatch) return;
+        const modal = document.getElementById('behanceModal');
+        const iframe = document.getElementById('behanceFrame');
+        iframe.src = srcMatch[1];
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
       });
+    });
+
+    document.querySelector('.modal-close')?.addEventListener('click', () => {
+      const modal = document.getElementById('behanceModal');
+      const iframe = document.getElementById('behanceFrame');
+      modal.classList.remove('active');
+      iframe.src = '';
+      document.body.style.overflow = '';
+    });
+
+    document.getElementById('behanceModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'behanceModal') {
+        const modal = document.getElementById('behanceModal');
+        const iframe = document.getElementById('behanceFrame');
+        modal.classList.remove('active');
+        iframe.src = '';
+        document.body.style.overflow = '';
+      }
     });
   </script>
 </body>
