@@ -532,6 +532,10 @@
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
+[data-theme="dark"] .antigravity-timeline .timeline-item:hover .story-card p {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
 [data-theme="dark"] .antigravity-timeline .floating-dot {
   background: linear-gradient(135deg, #667EEA 0%, #764BA2 25%, #F093FB 50%, #4FACFE 75%, #667EEA 100%);
   background-size: 300% 300%;
