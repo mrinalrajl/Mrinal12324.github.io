@@ -86,6 +86,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
+  cursor: default;
 }
 
 .designs-page .message-bubble img {
@@ -218,11 +219,91 @@
 }
 
 @media (max-width: 768px) {
-  .designs-page .message-bubble {
-    width: calc(100% - 100px);
+  .designs-page {
+    margin-top: 120px;
+  }
+
+  .designs-page .timeline-container {
+    padding: 2rem 1rem;
+  }
+
+  .designs-page .timeline-line {
+    left: 30px;
+  }
+
+  .designs-page .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 5rem;
+    min-height: auto;
+  }
+
+  .designs-page .timeline-item:nth-child(odd) .message-bubble,
+  .designs-page .timeline-item:nth-child(even) .message-bubble {
+    grid-column: 1;
+    justify-self: start;
+    width: calc(100% - 80px);
     margin-left: 70px;
     margin-right: 0;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 18px;
+  }
+
+  .designs-page .timeline-dot {
+    left: 30px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ffffff;
+  }
+
+  .designs-page .timeline-item:hover .timeline-dot {
+    width: 24px;
+    height: 24px;
+  }
+
+  .designs-page .message-bubble img {
+    height: 200px;
+  }
+
+  .designs-page .message-bubble-content {
+    padding: 14px 16px;
+  }
+
+  .designs-page .design-title {
+    font-size: 0.95rem;
+  }
+
+  .designs-page .proj-date {
+    font-size: 0.75rem;
+  }
+
+  .designs-page .message-bubble p {
+    font-size: 0.85rem;
+  }
+
+  .preview-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    height: 85%;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
   }
 }

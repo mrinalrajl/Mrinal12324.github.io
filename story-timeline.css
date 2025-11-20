@@ -490,6 +490,10 @@
 }
 
 @media (max-width: 768px) {
+  .antigravity-timeline {
+    padding: 4rem 1rem 6rem;
+  }
+
   .vertical-timeline-line {
     left: 30px;
   }
@@ -504,12 +508,22 @@
   .antigravity-timeline .timeline-item:nth-child(even) {
     flex-direction: row;
     margin-bottom: 6rem;
+    min-height: auto;
   }
   
   .antigravity-timeline .floating-dot {
     left: 30px;
     width: 60px;
     height: 60px;
+    transform: translateX(0);
+  }
+
+  .antigravity-timeline .timeline-item:hover .floating-dot {
+    transform: scale(1.1);
+  }
+
+  .dot-year {
+    font-size: 1.1rem;
   }
   
   .timeline-connector {
@@ -521,6 +535,37 @@
     width: calc(100% - 100px);
     margin-left: 90px;
     margin-right: 0;
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .story-card h3 {
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .story-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .story-year {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+  }
+
+  .story-back-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+    padding: 0 1rem;
   }
 }
 
@@ -529,6 +574,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 1.2rem 3rem;
   font-size: 1.1rem;
