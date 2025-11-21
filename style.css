@@ -2507,12 +2507,23 @@ h3 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   z-index: 999;
-  padding: 6rem var(--dynamic-spacing) 2rem;
+  padding: 5rem var(--dynamic-spacing) 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 2rem;
   overflow-y: auto;
+}
+
+.site-nav::before {
+  content: 'Navigate';
+  position: absolute;
+  top: 4.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(0, 122, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 [data-theme="dark"] .site-nav {
@@ -2969,6 +2980,7 @@ h3 {
     gap: 0.8rem;
     width: 100%;
     padding: 0;
+    margin-top: 0.5rem;
   }
 
   .site-nav[style*="display: flex"] .nav-link {
