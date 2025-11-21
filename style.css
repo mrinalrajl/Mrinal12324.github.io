@@ -3215,17 +3215,45 @@ h3 {
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-icon {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
     margin-bottom: 0 !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: rgba(0, 122, 255, 0.15);
-    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.25), rgba(88, 86, 214, 0.2));
+    border-radius: 14px;
     color: #ffffff;
     flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4), 0 0 40px rgba(88, 86, 214, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link .nav-icon::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: siriGlow 3s linear infinite;
+  }
+
+  @keyframes siriGlow {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(200%) rotate(45deg); }
+  }
+
+  .site-nav[style*="display: flex"] .nav-link:active .nav-icon {
+    transform: scale(0.92);
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5), 0 0 30px rgba(88, 86, 214, 0.3);
+  }
+
+  .site-nav[style*="display: flex"] .nav-link .nav-icon i {
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-label {
@@ -4353,5 +4381,68 @@ h3 {
 
   .story-panel {
     padding: 0 1rem;
+  }
+}
+
+
+/* Story Page Mobile Fix */
+@media (max-width: 768px) {
+  .story-page {
+    padding: 6rem 0 3rem 0;
+  }
+
+  .antigravity-timeline {
+    position: relative;
+    padding: 2rem 0 2rem 2.5rem;
+  }
+
+  .vertical-timeline-line {
+    left: 12px !important;
+    width: 2px !important;
+  }
+
+  .timeline-svg-path {
+    display: none;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem !important;
+    padding-left: 0;
+  }
+
+  .floating-dot {
+    position: absolute !important;
+    left: -2.5rem !important;
+    top: 1rem !important;
+    width: 32px !important;
+    height: 32px !important;
+    transform: none !important;
+  }
+
+  .dot-year {
+    font-size: 0.85rem !important;
+  }
+
+  .timeline-connector {
+    display: none;
+  }
+
+  .story-page .story-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1.5rem !important;
+  }
+
+  .story-page .page-title {
+    font-size: 2rem !important;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .story-page .lead {
+    font-size: 0.95rem !important;
+    padding: 0 1rem;
+    margin-bottom: 2rem !important;
   }
 }

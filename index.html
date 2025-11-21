@@ -351,11 +351,25 @@
     });
 
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (e) => {
         if (window.innerWidth < 768) {
-          navToggle.setAttribute('aria-expanded', 'false');
-          siteNav.style.display = 'none';
-          document.body.style.overflow = '';
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            navToggle.setAttribute('aria-expanded', 'false');
+            siteNav.style.display = 'none';
+            document.body.style.overflow = '';
+            setTimeout(() => {
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }, 300);
+          } else {
+            navToggle.setAttribute('aria-expanded', 'false');
+            siteNav.style.display = 'none';
+            document.body.style.overflow = '';
+          }
         }
       });
     });
