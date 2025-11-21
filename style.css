@@ -2676,8 +2676,12 @@ h3 {
     color: #ffffff !important;
   }
 
-  .site-nav[style*="display: flex"] .nav-link .nav-icon {
+  .site-nav[style*="display: flex"] .nav-link span.nav-icon {
     color: #ffffff !important;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link span.refraction {
+    display: none !important;
   }
 }
 
@@ -2728,6 +2732,11 @@ h3 {
     transition: all 0.3s ease;
   }
 
+  body:has(.site-nav[style*="display: flex"]) .nav-icon::before,
+  body:has(.site-nav[style*="display: flex"]) .nav-icon::after {
+    background: #ffffff;
+  }
+
   .nav-icon::before {
     top: -8px;
   }
@@ -2743,11 +2752,20 @@ h3 {
   .nav-toggle[aria-expanded="true"] .nav-icon::before {
     transform: rotate(45deg);
     top: 0;
+    background: #ffffff;
   }
 
   .nav-toggle[aria-expanded="true"] .nav-icon::after {
     transform: rotate(-45deg);
     top: 0;
+    background: #ffffff;
+  }
+
+  .nav-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2001;
   }
 }
 
@@ -3218,26 +3236,27 @@ h3 {
     font-size: 1.4rem !important;
     margin-bottom: 0 !important;
     display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.25), rgba(88, 86, 214, 0.2));
-    border-radius: 14px;
-    color: #ffffff;
-    flex-shrink: 0;
-    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4), 0 0 40px rgba(88, 86, 214, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.25), rgba(88, 86, 214, 0.2)) !important;
+    border-radius: 14px !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4), 0 0 40px rgba(88, 86, 214, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.4s ease !important;
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-icon::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: siriGlow 3s linear infinite;
+    content: '' !important;
+    position: absolute !important;
+    inset: -2px !important;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    animation: siriGlow 3s linear infinite !important;
+    pointer-events: none !important;
   }
 
   @keyframes siriGlow {
@@ -3246,14 +3265,18 @@ h3 {
   }
 
   .site-nav[style*="display: flex"] .nav-link:active .nav-icon {
-    transform: scale(0.92);
-    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5), 0 0 30px rgba(88, 86, 214, 0.3);
+    transform: scale(0.92) !important;
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5), 0 0 30px rgba(88, 86, 214, 0.3) !important;
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-icon i {
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    position: relative !important;
+    z-index: 1 !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link span.nav-icon {
+    display: inline-flex !important;
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-label {
@@ -4444,5 +4467,73 @@ h3 {
     font-size: 0.95rem !important;
     padding: 0 1rem;
     margin-bottom: 2rem !important;
+  }
+}
+
+
+/* Mobile Dark Mode Toggle Center Position */
+@media (max-width: 767px) {
+  .site-header .container .dark-mode-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2001;
+  }
+}
+
+
+/* Hide dark mode toggle when nav is open in mobile */
+@media (max-width: 767px) {
+  body:has(.site-nav[style*="display: flex"]) .dark-mode-toggle {
+    display: none !important;
+  }
+}
+
+
+/* Reduce mobile nav top space */
+@media (max-width: 767px) {
+  .site-nav[style*="display: flex"] {
+    padding: 1rem 1rem 1.5rem !important;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .site-nav[style*="display: flex"] .nav-pill {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Mobile nav color for light/dark mode */
+@media (max-width: 767px) {
+  [data-theme="dark"] .site-nav[style*="display: flex"] {
+    background: rgba(20, 20, 25, 0.95) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .site-nav[style*="display: flex"] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+
+/* Fix nav text visibility in light mode mobile */
+@media (max-width: 767px) {
+  .site-nav[style*="display: flex"] .nav-link .nav-label {
+    color: #1d1d1f !important;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link .nav-icon {
+    color: #007AFF !important;
+  }
+
+  [data-theme="dark"] .site-nav[style*="display: flex"] .nav-link .nav-label {
+    color: #f5f5f7 !important;
+  }
+
+  [data-theme="dark"] .site-nav[style*="display: flex"] .nav-link .nav-icon {
+    color: #ffffff !important;
   }
 }
