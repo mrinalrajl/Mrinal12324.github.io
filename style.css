@@ -2517,14 +2517,24 @@ h3 {
   .info-flow {
     flex-direction: column;
     gap: 1.2rem;
+    align-items: stretch;
+  }
+
+  .info-column {
+    width: 100%;
   }
 
   .info-item {
     margin-bottom: 0;
+    width: 100%;
   }
 
   .info-item h3 {
     font-size: 1.3rem;
+    min-height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .info-item p,
@@ -2534,9 +2544,21 @@ h3 {
 
   .float-card {
     max-width: 100%;
-    height: auto;
-    min-height: 180px;
+    height: 220px;
+    min-height: 220px;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .floating-icon {
+    margin-bottom: 0.8rem;
+  }
+
+  .expertise-list {
+    margin: 0;
+    padding: 0;
   }
 
   .about-intro {
@@ -3298,6 +3320,12 @@ h3 {
   min-width: 0;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .info-column {
+    width: 100%;
+  }
 }
 
 .float-card {
