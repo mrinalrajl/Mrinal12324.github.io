@@ -1861,7 +1861,35 @@ h3 {
   }
 
   .contact-card {
+    padding: 1.8rem;
+    border-radius: 20px;
+  }
+
+  .contact-card i {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card p {
+    font-size: 0.95rem;
+  }
+
+  .site-footer {
     padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .story-button {
+    width: 52px;
+    height: 52px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -2435,57 +2463,102 @@ h3 {
 
 @media (max-width: 767px) {
   .section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
   }
 
   .gallery-section {
-    padding: 3rem 0;
-    border-radius: 30px;
+    padding: 2.5rem 0;
+    border-radius: 24px;
+    margin: 1rem;
+  }
+
+  .section-header h2,
+  .section-title h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header .lead {
+    font-size: 1rem;
   }
 
   .tech-flow {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .flow-column {
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .tech-item {
     padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .tech-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .tech-item p {
+    font-size: 0.9rem;
   }
 
   .tech-icon {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1rem;
   }
 
   .info-flow {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .info-item {
     margin-bottom: 0;
   }
 
+  .info-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .info-item p,
+  .expertise-list li {
+    font-size: 1rem;
+  }
+
   .float-card {
     max-width: 100%;
     height: auto;
-    min-height: 200px;
+    min-height: 180px;
+    padding: 1.5rem;
   }
 
   .about-intro {
     padding: 2rem 0;
+    min-height: auto;
   }
 
   .about-intro-inner {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .intro-title {
+    font-size: 1.8rem;
+  }
+
+  .intro-sub {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .about-content {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
 }
 
@@ -3024,17 +3097,17 @@ h3 {
 
   .site-nav[style*="display: flex"] .nav-link {
     width: 100% !important;
-    max-width: 400px;
+    max-width: 380px;
     height: auto !important;
     flex-direction: row !important;
     justify-content: flex-start;
     align-items: center;
-    padding: 1.2rem 1.5rem !important;
-    border-radius: 20px !important;
-    gap: 1.2rem;
+    padding: 1.1rem 1.3rem !important;
+    border-radius: 18px !important;
+    gap: 1rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 8px 32px rgba(0, 122, 255, 0.15) !important;
+    box-shadow: 0 6px 24px rgba(0, 122, 255, 0.12) !important;
     transition: all 0.3s ease !important;
   }
 
@@ -3089,13 +3162,30 @@ h3 {
 
 @media (max-width: 767px) {
   .hero-section {
-    padding-top: 7rem;
+    padding-top: 6rem;
     min-height: auto;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
   }
 
   .hero-grid {
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+
+  .hero-section .headline {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section .subheadline {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 
   .cta-group {
@@ -3108,6 +3198,8 @@ h3 {
   .secondary-btn {
     width: 100%;
     justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -3629,12 +3721,38 @@ h3 {
 
   .experience-list,
   .project-list {
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .exp-item,
   .project-item {
     padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .exp-item h3,
+  .project-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-meta,
+  .proj-meta {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .exp-diff {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .exp-details li,
+  .proj-details li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.4rem 0;
   }
 
   .section-separator {
@@ -3643,6 +3761,11 @@ h3 {
 
   .section-separator .line {
     width: 25%;
+  }
+
+  .section-separator .dot {
+    width: 8px;
+    height: 8px;
   }
 }
 
