@@ -2944,6 +2944,29 @@ h3 {
 
   .site-nav[style*="display: flex"] {
     display: flex !important;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link {
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    border-radius: 16px;
+    gap: 1rem;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link .nav-icon {
+    font-size: 1.5rem;
+  }
+
+  .site-nav[style*="display: flex"] .nav-link .nav-label {
+    display: block;
+    position: static;
+    transform: none;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 }
 
