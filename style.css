@@ -132,7 +132,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-padding-top: 200px;
+  scroll-padding-top: 120px;
 }
 
 /* 🌊 Siri-like animated wavy background */
@@ -1271,7 +1271,7 @@ h3 {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1100;
+  z-index: 1200;
   padding: 0.75rem 1.25rem;
 
   /* 🧊 iOS Nav Frost Glass */
@@ -2502,15 +2502,17 @@ h3 {
   display: none;
   position: fixed;
   inset: 0;
+  top: 0;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 1000;
-  padding: 5rem var(--dynamic-spacing);
+  z-index: 999;
+  padding: 6rem var(--dynamic-spacing) 2rem;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
+  overflow-y: auto;
 }
 
 [data-theme="dark"] .site-nav {
@@ -2971,13 +2973,15 @@ h3 {
 
   .site-nav[style*="display: flex"] .nav-link {
     width: 100% !important;
+    max-width: 400px;
     height: auto !important;
     flex-direction: row !important;
     justify-content: flex-start;
     padding: 1.2rem 1.5rem !important;
     border-radius: 16px !important;
     gap: 1rem;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-icon {
