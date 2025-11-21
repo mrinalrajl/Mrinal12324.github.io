@@ -1514,6 +1514,12 @@ h3 {
   display: none;
 }
 
+@media (max-width: 767px) {
+  .nav-link .nav-label {
+    display: inline-block !important;
+  }
+}
+
 .nav-link .refraction {
   position: absolute;
   top: 50%;
@@ -2934,39 +2940,59 @@ h3 {
 }
 
 @media (max-width: 767px) {
-  .nav-pill {
-    display: none;
-  }
-
   .site-nav {
     display: none !important;
   }
 
   .site-nav[style*="display: flex"] {
     display: flex !important;
+  }
+
+  .site-nav[style*="display: flex"] .nav-pill {
+    display: flex !important;
     flex-direction: column;
-    gap: 1.5rem;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+  }
+
+  .site-nav[style*="display: flex"] .nav-left,
+  .site-nav[style*="display: flex"] .nav-right {
+    display: none !important;
+  }
+
+  .site-nav[style*="display: flex"] .nav-center {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
   }
 
   .site-nav[style*="display: flex"] .nav-link {
-    width: auto;
-    height: auto;
-    flex-direction: row;
-    padding: 1rem 2rem;
-    border-radius: 16px;
+    width: 100% !important;
+    height: auto !important;
+    flex-direction: row !important;
+    justify-content: flex-start;
+    padding: 1.2rem 1.5rem !important;
+    border-radius: 16px !important;
     gap: 1rem;
+    background: rgba(255, 255, 255, 0.1) !important;
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-icon {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
+    margin-bottom: 0 !important;
+    display: inline-flex !important;
   }
 
   .site-nav[style*="display: flex"] .nav-link .nav-label {
-    display: block;
-    position: static;
-    transform: none;
-    font-size: 1.1rem;
-    font-weight: 600;
+    display: inline-block !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }
 
