@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Manrope", sans-serif;
+  
+  --color-primary: #1337ec;
+  --color-background-light: #f6f6f8;
+  --color-background-dark: #101322;
+
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary/30 overflow-x-hidden transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .grid-pattern {
+    background-image: radial-gradient(circle, #1337ec22 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .brutalist-border {
+    border: 2px solid currentColor;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
